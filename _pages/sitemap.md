@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "Sitemap"
+sitemap: false
 permalink: /sitemap/
 author_profile: true
 ---
@@ -11,7 +12,9 @@ A list of all the posts and pages found on the site. For you robots out there is
 
 <h2>Pages</h2>
 {% for post in site.pages %}
+{% unless post.sitemap == false %}
   {% include archive-single.html %}
+{% endunless %}
 {% endfor %}
 
 <h2>Posts</h2>

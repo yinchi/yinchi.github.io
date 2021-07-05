@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "CV"
+excerpt: "Hire me, maybe?"
 permalink: /cv/
 author_profile: true
 redirect_from:

@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "Publications"
+excerpt: "Goal: increase h-index."
 permalink: /publications/
 author_profile: true
 ---
