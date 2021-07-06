@@ -18,8 +18,8 @@ A list of all the posts and pages found on the site. For you robots out there is
 {% endfor %}
 
 <h2>Posts</h2>
-{% for post in site.posts %}
-  {% include archive-single.html %}
+{% for post in site.posts reversed %}
+  {% include sitemap-post.html %}
 {% endfor %}
 
 {% capture written_label %}'None'{% endcapture %}
@@ -32,9 +32,9 @@ A list of all the posts and pages found on the site. For you robots out there is
   {% capture written_label %}{{ label }}{% endcapture %}
   {% endif %}
 {% endunless %}
-{% for post in collection.docs %}
+{% for post in collection.docs reversed %}
   {% unless collection.output == false or collection.label == "posts" %}
-  {% include archive-single.html %}
+  {% include sitemap-pub.html %}
   {% endunless %}
 {% endfor %}
 {% endfor %}
