@@ -1,1 +1,1 @@
-# Under construction
+I am a research associate at City University of Hong Kong.  My research interests include simulation and analytic methods for the performance evaluation, design, and control of stochastic systems, with applications in telecommunications and service systems.  Click any of the links on this page to learn more about me.
