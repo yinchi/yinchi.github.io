@@ -29,6 +29,14 @@ redirect_from:
     * Conduct research on simulation and analytical approximation methods for blocking probability in overflow loss system models, including machine learning-based methods, with applications in various telecommunications and service systems.
     * Mentor undergraduate students on the completion of their final year projects.
     * Instruct final-year undergraduate students on writing simulation programs for stochastic system models.
+* Co-lecturer, University of the Witwatersrand, South Africa (Jul-Sep 2021)
+  * Co-lecturer of the capstone course "Design Project" on engineering design for students
+    in Electrical and Information Engineering.
+  * I was invited to co-lecture this course due to my previous collaboration with **Prof.
+    Anton van Wyk** on epidemiological modelling for COVID-19.
+  * Students choosing our selected topic would need to design a simple epidemiological
+    model for COVID-19, analyze possible tipping points leading to an out-of-control
+    local epidemic, and design an early-warning system to avoid hitting these tipping points.
 
 
 ## Skills
@@ -52,8 +60,8 @@ Feb. 2020. ([PDF](/files/570patent.pdf) | [Google link](https://patents.google.c
 ## Continuing education
 
 * Data Science (HarvardX)
-  * Completed six of nine courses on data science using the R tidyverse packages, including plotting, inference and modeling, data wrangling and string processing.
-  * Currently completing the remaining 3 courses: linear regression, machine learning and the capstone project.
+  * Completed seven of nine courses on data science using the R tidyverse packages, including plotting, inference and modeling, data wrangling and string processing.
+  * Currently completing the remaining 2 courses: machine learning and the capstone project.
   * [Program record](https://credentials.edx.org/records/programs/3c32e3e0b6fe4ee4bd4f210c6339e074/)
 * Epidemics-Origins, Spread, Control and Communication (HKUx)
   * Four courses on the origins, spread and control of infectious disease epidemics and
