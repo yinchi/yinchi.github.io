@@ -19,7 +19,16 @@ redirect_from:
 * B.Math., University of Waterloo, 2010
 
 ## Work experience
-* Research Associate (2020-), Research Fellow (2018-2020), Postdoctoral Fellow (2016-2018)
+* Research Associate (2020-2021)
+  * Institute for Manufacturing, University of Cambridge
+  * Supervisor: Prof. Ajith Parlikad
+  * Duties:
+    * Develop discrete event simulation models of patient flow and hospital operations.
+    * Exctend current models to account for the rapidly changing circumstances of the Covid-19 pandemic,
+      and support recovery of selected non-Covid services.
+    * Set the foundation for developing hospital digital twins, deepening understanding of
+      hospital operations, asset management, and patient outcomes.
+* Research Associate (2020-2021), Research Fellow (2018-2020), Postdoctoral Fellow (2016-2018)
   * City University of Hong Kong
   * Supervisor: Dr. Eric W. M. Wong
   * Duties:
@@ -32,8 +41,8 @@ redirect_from:
 * Co-lecturer, University of the Witwatersrand, South Africa (Jul-Sep 2021)
   * Co-lecturer of the capstone course "Design Project" on engineering design for students
     in Electrical and Information Engineering.
-  * I was invited to co-lecture this course due to my previous collaboration with **Prof.
-    Anton van Wyk** on epidemiological modelling for COVID-19.
+  * I was invited to co-lecture this course thanks to my previous collaboration with
+    **Prof. Anton van Wyk** on epidemiological modelling for COVID-19.
   * Students choosing our selected topic would need to design a simple epidemiological
     model for COVID-19, analyze possible tipping points leading to an out-of-control
     local epidemic, and design an early-warning system to avoid hitting these tipping points.

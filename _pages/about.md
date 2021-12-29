@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a research associate at City University of Hong Kong. My research interests include simulation and analytic methods for the performance evaluation, design, and control of stochastic systems, with applications in telecommunications and service systems. Click any of the links on this page to learn more about me.
+I am a research associate at the [Institute for Manufacturing](https://www.ifm.eng.cam.ac.uk/), the University of Cambridge. My research interests include simulation and analytic methods for the performance evaluation, design, and control of stochastic systems, with applications in telecommunications and service systems. Click any of the links on this page to learn more about me.
 
 ## Bio
 I was born in Hong Kong and moved to Canada for several years as a child, returning to Canada to study at the University of Waterloo.  I then completed my Masters and PhD at the City University of Hong Kong where I currently work as a research associate.
