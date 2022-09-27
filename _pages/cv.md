@@ -19,7 +19,7 @@ redirect_from:
 * B.Math., University of Waterloo, 2010
 
 ## Work experience
-* Research Associate (2020-2021)
+* Research Associate (Dec. 2021-present)
   * Institute for Manufacturing, University of Cambridge
   * Supervisor: Prof. Ajith Parlikad
   * Duties:
@@ -49,7 +49,7 @@ redirect_from:
 
 
 ## Skills
-* Various programming languages: C++, Python, MATLAB, R, Java, Julia
+* Various programming languages: R, Python, C++, MATLAB, Java, Julia
 * Discrete-event simulation
 * Markov-chain simulation
 * Stochastic modeling and performance evaluation of telecommunications and service systems
@@ -69,8 +69,8 @@ Feb. 2020. ([PDF](/files/570patent.pdf) | [Google link](https://patents.google.c
 ## Continuing education
 
 * Data Science (HarvardX)
-  * Completed seven of nine courses on data science using the R tidyverse packages, including plotting, inference and modeling, data wrangling and string processing.
-  * Currently completing the remaining 2 courses: machine learning and the capstone project.
+  * Completed eight of nine courses on data science using the R tidyverse packages, including plotting, inference and modeling, data wrangling and string processing.
+  * Currently completing the final capstone project.
   * [Program record](https://credentials.edx.org/records/programs/3c32e3e0b6fe4ee4bd4f210c6339e074/)
 * Epidemics-Origins, Spread, Control and Communication (HKUx)
   * Four courses on the origins, spread and control of infectious disease epidemics and
