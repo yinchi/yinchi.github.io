@@ -69,8 +69,7 @@ Feb. 2020. ([PDF](/files/570patent.pdf) | [Google link](https://patents.google.c
 ## Continuing education
 
 * Data Science (HarvardX)
-  * Completed eight of nine courses on data science using the R tidyverse packages, including plotting, inference and modeling, data wrangling and string processing.
-  * Currently completing the final capstone project.
+  * Nine courses on data science using the R tidyverse packages, including plotting, inference and modeling, data wrangling and string processing.
   * [Program record](https://credentials.edx.org/records/programs/3c32e3e0b6fe4ee4bd4f210c6339e074/)
 * Epidemics-Origins, Spread, Control and Communication (HKUx)
   * Four courses on the origins, spread and control of infectious disease epidemics and
