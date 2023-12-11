@@ -92,9 +92,11 @@ for row, item in talks.iterrows():
     md += "---\n"
     
     
-    if len(str(item.talk_url)) > 3:
-        md += "\n[More information here](" + item.talk_url + ")\n" 
-        
+    # if len(str(item.talk_url)) > 3:
+    #    md += "\n[More information here](" + item.talk_url + ")\n" 
+    
+    if len(str(item.authors)) > 3:
+        md += "\n" + html_escape(item.authors) + "\n"
     
     if len(str(item.description)) > 3:
         md += "\n" + html_escape(item.description) + "\n"
