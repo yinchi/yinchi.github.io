@@ -13,6 +13,6 @@ This page contains talks that I have given.  For conference publications present
 
 {% endif %}
 
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
-{% endfor %}
+<ol reversed>{% for post in site.talks reversed %}
+  <li>{% include archive-single-talk.html %}</li>
+{% endfor %}</ol>

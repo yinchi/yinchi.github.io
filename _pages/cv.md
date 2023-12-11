@@ -57,19 +57,19 @@ Skills
 
 Publications
 ------------
-  <ol>{% for post in site.publications reversed %}
+  <ol reversed>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ol>
 
 ### Preprints
 
-  <ol>{% for post in site.preprints reversed %}
+  <ol reversed>{% for post in site.preprints reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ol>
   
 Talks
 -----
-  <ol>{% for post in site.talks reversed %}
+  <ol reversed>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ol>
 

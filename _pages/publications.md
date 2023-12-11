@@ -11,12 +11,17 @@ You can also find my articles on <a href="https://scholar.google.com/citations?u
 
 {% include base_path %}
 
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+* [Published papers](#published-papers)
+* [Preprints](#preprints)
+
+## Published papers
+
+<ol reversed>{% for post in site.publications reversed %}
+  <li>{% include archive-single.html %}</li>
+{% endfor %}</ol>
 
 ## Preprints
 
-{% for post in site.preprints reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+<ol reversed>{% for post in site.preprints reversed %}
+  <li>{% include archive-single.html %}</li>
+{% endfor %}</ol>
