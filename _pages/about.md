@@ -16,3 +16,8 @@ Bio
 I was born in Hong Kong and moved to Canada for several years as a child, returning to Canada to study at the University of Waterloo. I then completed my Masters and PhD at the City University of Hong Kong. In Dec 2021, I moved to England to work as a research associate at the University of Cambridge.
 
 My Erdös number is 3: Erdös → Charles K. Chui → [Guanrong Chen](https://www.ee.cityu.edu.hk/~gchen/) → me (thanks to [this paper](/publication/2020-10-20-niu2020_access))
+
+CV
+===
+
+[Click here](/cv/) to see my CV.
