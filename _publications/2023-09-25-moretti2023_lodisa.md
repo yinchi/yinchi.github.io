@@ -6,7 +6,7 @@ excerpt: 'Proposes a set of methods to identify digital technology opportunities
 date: 2023-09-25
 venue: 'Low-Cost Digital Solutions for Industrial Automation (LoDiSA 2023)'
 paperurl: '/files/moretti2023_lodisa.pdf'
-citation: 'N. Moretti, A. Mukherjee, **Y.-C. Chan**, G. Yilmaz, J. Merino, M. Sasid- haran, Z. Rosun, C. Carr, D. McFarlane, and A. K. Parlikad, “Low-cost digitalisation opportunities in healthcare: a histopathology department case study,” in *Low-Cost Digital Solutions for Industrial Automation (LoDiSA 2023)*, (Cambridge, UK), pp. 62–68, Sept. 2023.'
+citation: 'N. Moretti, A. Mukherjee, **Y.-C. Chan**, G. Yilmaz, J. Merino, M. Sasidharan, Z. Rosun, C. Carr, D. McFarlane, and A. K. Parlikad, “Low-cost digitalisation opportunities in healthcare: a histopathology department case study,” in *Low-Cost Digital Solutions for Industrial Automation (LoDiSA 2023)*, (Cambridge, UK), pp. 62–68, Sept. 2023.'
 ---
 Proposes a set of methods to identify digital technology opportunities and prioritise their adoption in an histopathology department, using one in an East of England regional hospital as a case study.
 
@@ -16,4 +16,4 @@ Proposes a set of methods to identify digital technology opportunities and prior
 
 [Download paper here](/files/moretti2023_lodisa.pdf)
 
-**Recommended citation**:<br/>N. Moretti, A. Mukherjee, **Y.-C. Chan**, G. Yilmaz, J. Merino, M. Sasid- haran, Z. Rosun, C. Carr, D. McFarlane, and A. K. Parlikad, “Low-cost digitalisation opportunities in healthcare: a histopathology department case study,” in *Low-Cost Digital Solutions for Industrial Automation (LoDiSA 2023)*, (Cambridge, UK), pp. 62–68, Sept. 2023.
+**Recommended citation**:<br/>N. Moretti, A. Mukherjee, **Y.-C. Chan**, G. Yilmaz, J. Merino, M. Sasidharan, Z. Rosun, C. Carr, D. McFarlane, and A. K. Parlikad, “Low-cost digitalisation opportunities in healthcare: a histopathology department case study,” in *Low-Cost Digital Solutions for Industrial Automation (LoDiSA 2023)*, (Cambridge, UK), pp. 62–68, Sept. 2023.
