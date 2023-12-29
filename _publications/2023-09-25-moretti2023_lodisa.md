@@ -4,7 +4,7 @@ collection: publications
 permalink: /publication/2023-09-25-moretti2023_lodisa
 excerpt: 'Proposes a set of methods to identify digital technology opportunities and prioritise their adoption in an histopathology department, using one in an East of England regional hospital as a case study.'
 date: 2023-09-25
-venue: 'Low-Cost Digital Solutions for Industrial Automation (LoDiSA 2023), 2023'
+venue: 'Low-Cost Digital Solutions for Industrial Automation (LoDiSA 2023)'
 paperurl: '/files/moretti2023_lodisa.pdf'
 citation: 'N. Moretti, A. Mukherjee, **Y.-C. Chan**, G. Yilmaz, J. Merino, M. Sasid- haran, Z. Rosun, C. Carr, D. McFarlane, and A. K. Parlikad, “Low-cost digitalisation opportunities in healthcare: a histopathology department case study,” in *Low-Cost Digital Solutions for Industrial Automation (LoDiSA 2023)*, (Cambridge, UK), pp. 62–68, Sept. 2023.'
 ---
