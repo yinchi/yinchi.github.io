@@ -48,7 +48,7 @@ Work experience
 Skills
 ------
 
-* Extensive experience with discrete-event simulation in Python (using the [SimPy](https://simpy.readthedocs.io/en/latest/index.html) and [salabim](https://www.salabim.org/) libraries)
+* Extensive experience with discrete-event simulation in Python (using the [SimPy](https://simpy.readthedocs.io/en/latest/index.html) and [salabim](https://www.salabim.org/) libraries) and [Arena](https://www.rockwellautomation.com/en-gb/products/software/arena-simulation.html)
 * Markov-chain simulation
 * Web app development using Flask and [Python Dash](https://dash.plotly.com/)
 * Some experience in R, MATLAB, Julia, Java, C++, and SQL.
@@ -88,7 +88,7 @@ patent [US10568047B2](https://patents.google.com/patent/US10568047B2/en), City U
   * Nine courses on data science using the R tidyverse packages, including plotting, inference and modelling, data wrangling, and string processing.
   * [Program record](https://credentials.edx.org/records/programs/shared/dceaa9b46cfb41ac82204d9c8abeaa0d)
 
-**Epidemics - Origins, Spread, Control and Communication** (HKUx)
+**Epidemics – Origins, Spread, Control and Communication** (HKUx)
   * Course provider: edX
   * Four courses on the origins, spread and control of infectious disease epidemics and eﬀective communication about infectious diseases
   * [Program record](https://credentials.edx.org/records/programs/shared/844bacdaae2f4a51a0b1f835c3b650b9)
