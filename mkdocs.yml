@@ -3,6 +3,7 @@ nav:
   - Home: index.md
   - CV: cv.md
   - Publications: publications.md
+  - Portfolio: portfolio.md
 theme:
   name: material
   palette:
@@ -36,3 +37,7 @@ markdown_extensions:  # https://squidfunk.github.io/mkdocs-material/setup/extens
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
