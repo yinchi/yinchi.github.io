@@ -1,0 +1,38 @@
+site_name: Yin-Chi Chan, PhD
+nav:
+  - Home: index.md
+  - CV: cv.md
+  - Publications: publications.md
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - content.code.copy
+plugins:
+  - bibtex:
+      bib_file: yinchi.bib
+      csl_file: ieee-with-url.csl
+markdown_extensions:  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
+  - admonition
+  - attr_list
+  - def_list
+  - smarty  # https://python-markdown.github.io/extensions/smarty/
+  - pymdownx.smartsymbols
+  - pymdownx.highlight:  # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#configuration
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
