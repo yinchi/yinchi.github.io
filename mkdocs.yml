@@ -6,6 +6,7 @@ nav:
   - Portfolio: portfolio.md
   - Interesting stuff:
       - Useful links: links.md
+  - Blog: blog/index.md
 theme:
   name: material
   palette:
@@ -24,11 +25,15 @@ theme:
     - content.code.copy
     - navigation.expand
     - navigation.top
+    - navigation.indexes
 plugins:
   - bibtex:
       bib_file: yinchi.bib
       csl_file: ieee-with-url.csl
   - open-in-new-tab
+  - blog:
+      blog_toc: true
+      pagination_per_page: 10
 markdown_extensions:  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
   - admonition
   - attr_list
