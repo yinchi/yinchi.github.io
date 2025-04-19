@@ -1,9 +1,9 @@
 # Yin-Chi Chan, PhD
 
-<table>
+<table id="card">
     <tr>
         <td>
-            <img src='yinchi.png' width='200px'/>
+            <img src="yinchi.png" width="200px"/>
         </td>
         <td>
             <ul>
@@ -13,7 +13,12 @@
                     <li><b>Jyutping:</b> can4 hin2 zi3</li>
                     <li><b>IPA:</b> tsʰɐn˨˩ hi:n˧˥ tsi:˧</li>
                 </ul>
-                <p><b>Email:</b> y.c.hk(at)ieee(dot)org</p>
+                <p><b>Email:</b> y.c.hk(at)ieee(dot)org<br/></p>
+                <p><b>Links:</b></p>
+                <ul>
+                <li><a href="https://scholar.google.com/citations?user=NJEB3swAAAAJ" target="_blank">Google Scholar Profile</a></li>
+                <li><a href="https://orcid.org/0000-0002-2405-8472" target="_blank">ORCID profile</a></li>
+                </ul>
             </ul>
         </td>
     </tr>
@@ -26,8 +31,3 @@ I am a research associate at the [Institute for Manufacturing](https://www.ifm.e
 I was born in Hong Kong and moved to Canada for several years as a child, returning to Canada to study at the University of Waterloo. I then completed my Masters and PhD at the City University of Hong Kong. In Dec 2021, I moved to the UK to work as a research associate at the University of Cambridge. 🇭🇰 🇨🇦 🇬🇧
 
 My Erdős number is 3: Erdős → Charles K. Chui → [Guanrong Chen](https://www.ee.cityu.edu.hk/~gchen/erdos.html) → me (thanks to [this paper](https://doi.org/10.1109/ACCESS.2020.3032584))
-
-## Links
-
-- [Google Scholar Profile](https://scholar.google.com/citations?user=NJEB3swAAAAJ)
-- [ORCID profile](https://orcid.org/0000-0002-2405-8472)
