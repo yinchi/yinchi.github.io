@@ -20,6 +20,8 @@ theme:
         name: Switch to light mode
   features:
     - content.code.copy
+    - navigation.expand
+    - navigation.top
 plugins:
   - bibtex:
       bib_file: yinchi.bib
