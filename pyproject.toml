@@ -8,6 +8,7 @@ dependencies = [
     "mkdocs>=1.6.1",
     "mkdocs-bibtex>=4.2.5",
     "mkdocs-material>=9.6.11",
+    "mkdocs-open-in-new-tab>=1.0.8",
 ]
 
 [dependency-groups]

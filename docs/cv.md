@@ -47,10 +47,10 @@ Instructed final-year undergraduate students on writing simulation programs for 
 
 ## Skills
 
-- Extensive experience with discrete-event simulation in Python (using the [salabim](https://www.salabim.org/){:target=_blank} and [Simpy](https://simpy.readthedocs.io/en/latest/){:target=_blank} libraries) and [Arena](https://www.rockwellautomation.com/en-gb/products/software/arena-simulation.html){:target=_blank}.
-- Web dashboard development in Python using [Dash](https://dash.plotly.com/){:target=_blank}
+- Extensive experience with discrete-event simulation in Python (using the [salabim](https://www.salabim.org/) and [Simpy](https://simpy.readthedocs.io/en/latest/) libraries) and [Arena](https://www.rockwellautomation.com/en-gb/products/software/arena-simulation.html).
+- Web dashboard development in Python using [Dash](https://dash.plotly.com/)
 - Experience with Docker/Docker Compose
-- Document preparation with $\LaTeX$, R [bookdown](https://bookdown.org/){:target=_blank}, and [Quarto](https://quarto.org/){:target=_blank}
+- Document preparation with $\LaTeX$, R [bookdown](https://bookdown.org/), and [Quarto](https://quarto.org/)
 - Some experience in R, Julia, Java, C++, MATLAB, and SQL
 
 ### Continuing education certificates
@@ -60,12 +60,12 @@ Instructed final-year undergraduate students on writing simulation programs for 
 - Course provider: edX
 - Earned: Oct 2022
 - Nine courses on data science using the R tidyverse packages, including plotting, inference and modelling, data wrangling, and string processing.
-- [Program record](https://credentials.edx.org/records/programs/shared/dceaa9b46cfb41ac82204d9c8abeaa0d){:target=_blank}
+- [Program record](https://credentials.edx.org/records/programs/shared/dceaa9b46cfb41ac82204d9c8abeaa0d)
 
 **Epidemics – Origins, Spread, Control and Communication (HKUx)**
 
 - Course provider: edX
 - Earned: July 2022
 - Four courses on the origins, spread and control of infectious disease epidemics and eﬀective communication about infectious diseases
-- [Program record](https://credentials.edx.org/records/programs/shared/844bacdaae2f4a51a0b1f835c3b650b9){:target=_blank}
+- [Program record](https://credentials.edx.org/records/programs/shared/844bacdaae2f4a51a0b1f835c3b650b9)
 

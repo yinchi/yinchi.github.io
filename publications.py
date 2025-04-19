@@ -24,7 +24,7 @@ d = dict(sorted(d.items(), key=lambda i: i[1], reverse=True))
 with open('docs/publications.md', 'w', encoding='utf-8') as fp:
     print('# Publications', file=fp)
     print(file=fp)
-    print('Google Scholar profile: [link](https://scholar.google.com/citations?user=NJEB3swAAAAJ){:target=_blank}', file=fp)
+    print('Google Scholar profile: [link](https://scholar.google.com/citations?user=NJEB3swAAAAJ)', file=fp)
     print(file=fp)
     for k, v in d.items():
         print(f'1. @{k}')
@@ -32,8 +32,8 @@ with open('docs/publications.md', 'w', encoding='utf-8') as fp:
         path = f'papers/{k}.pdf'
         if Path(f'docs/{path}').is_file():
             print(f'    - [PDF]({path})')
-            print(f'    - [PDF]({path}){{:target=_blank}}', file=fp)
+            print(f'    - [PDF]({path}){}', file=fp)
         path = f'papers/{k}_slides.pdf'
         if Path(f'docs/{path}').is_file():
             print(f'    - [Slides]({path})')
-            print(f'    - [Slides]({path}){{:target=_blank}}', file=fp)
+            print(f'    - [Slides]({path}){}', file=fp)

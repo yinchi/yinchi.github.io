@@ -24,6 +24,7 @@ plugins:
   - bibtex:
       bib_file: yinchi.bib
       csl_file: ieee-with-url.csl
+  - open-in-new-tab
 markdown_extensions:  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
   - admonition
   - attr_list

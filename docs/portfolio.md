@@ -1,12 +1,12 @@
 # Portfolio
 
-## [HarvardX PH125.9x: Movielens Project](https://yinchi.github.io/harvardx-movielens/){:target=_blank}
+## [HarvardX PH125.9x: Movielens Project](https://yinchi.github.io/harvardx-movielens/)
 
 R project for partial completion of the edX course HarvardX PH125.9x: “Data Science: Capstone”.
 
-The objective of this project was to build a movie recommendation system using the [MovieLens](https://grouplens.org/datasets/movielens/10m/){:target=_blank} dataset. The final model presented uses linear regression with matrix factorisation on the residuals, and acheives a root mean squared error of 0.782 when estimating the ratings (out of 5) of movies in the test set.
+The objective of this project was to build a movie recommendation system using the [MovieLens](https://grouplens.org/datasets/movielens/10m/) dataset. The final model presented uses linear regression with matrix factorisation on the residuals, and acheives a root mean squared error of 0.782 when estimating the ratings (out of 5) of movies in the test set.
 
-## [HarvardX PH125.9x: Higgs dataset classification](https://yinchi.github.io/harvardx-higgs/){:target=_blank}
+## [HarvardX PH125.9x: Higgs dataset classification](https://yinchi.github.io/harvardx-higgs/)
 
 R project for partial completion of the edX course HarvardX PH125.9x: “Data Science: Capstone”.
 
