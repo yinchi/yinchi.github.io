@@ -4,6 +4,8 @@ nav:
   - CV: cv.md
   - Publications: publications.md
   - Portfolio: portfolio.md
+  - Interesting stuff:
+      - Useful links: links.md
 theme:
   name: material
   palette:
