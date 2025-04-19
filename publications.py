@@ -32,8 +32,18 @@ with open('docs/publications.md', 'w', encoding='utf-8') as fp:
         path = f'papers/{k}.pdf'
         if Path(f'docs/{path}').is_file():
             print(f'    - [PDF]({path})')
-            print(f'    - [PDF]({path}){}', file=fp)
+            print(f'    - [PDF]({path})', file=fp)
         path = f'papers/{k}_slides.pdf'
         if Path(f'docs/{path}').is_file():
             print(f'    - [Slides]({path})')
-            print(f'    - [Slides]({path}){}', file=fp)
+            print(f'    - [Slides]({path})', file=fp)
+
+
+    print('''\
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.md-content ol').innerHTML = document.querySelector('.md-content ol').innerHTML.replaceAll('Y.-C. Chan', '<b>Y.-C. Chan</b>')
+})
+</script>
+''', file=fp)

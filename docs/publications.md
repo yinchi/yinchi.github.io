@@ -43,3 +43,10 @@ Google Scholar profile: [link](https://scholar.google.com/citations?user=NJEB3sw
 1. @ChanPerformance2015
     - [PDF](papers/ChanPerformance2015.pdf)
     - [Slides](papers/ChanPerformance2015_slides.pdf)
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.md-content ol').innerHTML = document.querySelector('.md-content ol').innerHTML.replaceAll('Y.-C. Chan', '<b>Y.-C. Chan</b>')
+})
+</script>
+
