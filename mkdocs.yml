@@ -40,5 +40,7 @@ markdown_extensions:  # https://squidfunk.github.io/mkdocs-material/setup/extens
   - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
+extra_css:
+  - css/extra.css
 extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
