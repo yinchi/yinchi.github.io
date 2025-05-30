@@ -1,5 +1,9 @@
 # Portfolio
 
+## [Code for paper "Data integration for space-aware Digital Twins of hospital operations"](https://github.com/yinchi/histopath-bim-des)
+
+This code accompanies the Automation in Construction paper "[Data integration for space-aware Digital Twins of hospital operations](https://www.sciencedirect.com/science/article/pii/S0926580525003164)".  It simulates the handling of specimens in a histopathology laboratory, and examines the effect of building layout and infrastructure status on the lab turnaround time.
+
 ## [HarvardX PH125.9x: Movielens Project](https://yinchi.github.io/harvardx-movielens/)
 
 R project for partial completion of the edX course HarvardX PH125.9x: “Data Science: Capstone”.

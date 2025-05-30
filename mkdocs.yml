@@ -26,6 +26,11 @@ theme:
     - navigation.expand
     - navigation.top
     - navigation.indexes
+copyright: Copyright &copy; 2025 Yin-Chi Chan
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yinchi
 plugins:
   - bibtex:
       bib_file: yinchi.bib

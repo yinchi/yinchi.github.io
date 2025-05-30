@@ -2,6 +2,9 @@
 
 Google Scholar profile: [link](https://scholar.google.com/citations?user=NJEB3swAAAAJ)
 
+1. @MorettiData2025
+    - [PDF](papers/MorettiData2025.pdf)
+    - [GitHub repository](https://github.com/yinchi/histopath-bim-des)
 1. @WuDesign2025
     - [PDF](papers/WuDesign2025.pdf)
 1. @ChanProcess2024
