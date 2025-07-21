@@ -21,11 +21,11 @@ def y_m(bib, key):
 d = {k: y_m(bib, k) for k in bib.entries.keys() if bib.entries[k].type not in ['patent']}
 d = dict(sorted(d.items(), key=lambda i: i[1], reverse=True))
 
+with open('templates/_publications.md', 'r', encoding='utf-8') as fp:
+    preamble = fp.read()
+
 with open('docs/publications.md', 'w', encoding='utf-8') as fp:
-    print('# Publications', file=fp)
-    print(file=fp)
-    print('Google Scholar profile: [link](https://scholar.google.com/citations?user=NJEB3swAAAAJ)', file=fp)
-    print(file=fp)
+    print(preamble, file=fp)
     for k, v in d.items():
         print(f'1. @{k}')
         print(f'1. @{k}', file=fp)
