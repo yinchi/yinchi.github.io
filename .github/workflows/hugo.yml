@@ -39,7 +39,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
-          node-version: 20
+          # Matches local dev's Node version. Older npm (bundled with e.g. Node 20) resolves
+          # package.json's "overrides" field differently when combined with the npm
+          # workspaces setup here (packages/hugoautogen) -- `npm ci` flagged a false
+          # lockfile-mismatch under Node 20/npm 10 that doesn't reproduce under this version.
+          node-version: 26
           cache: npm
 
       - name: Install Node.js dependencies
