@@ -1,0 +1,8 @@
+{
+  "workspaces": [
+    "packages/hugoautogen"
+  ],
+  "overrides": {
+    "@fortawesome/fontawesome-free": "^7.3.1"
+  }
+}

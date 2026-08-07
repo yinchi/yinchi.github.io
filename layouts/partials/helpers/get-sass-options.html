@@ -1,0 +1,9 @@
+{{/* Override of Toha's helpers/get-sass-options.html: force the dartsass transpiler.
+     libsass was deprecated in Hugo v0.153.0 (see gohugo.io/installation/linux); Toha's
+     own partial doesn't set transpiler and still defaults to it, so we do here. */}}
+{{ return (dict
+    "transpiler" "dartsass"
+    "outputStyle" "compressed"
+    "enableSourceMap" (not hugo.IsProduction)
+    "includePaths" "node_modules"
+) }}

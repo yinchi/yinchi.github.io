@@ -1,0 +1,41 @@
+{{/* Standalone layout for plain top-level pages (Type "page"), e.g. /projects/.
+     Bypasses baseof.html's blog/doc-site wrapper (content-section/sidebar/toc columns)
+     entirely -- that machinery is for blog posts and notes, not a plain page. Instead
+     this mirrors index.html's own structure: navbar + a single full-width
+     "container-fluid anchor" section, the same wrapper class every homepage section
+     (about, projects, ...) uses. ".anchor" supplies the top padding that clears the
+     fixed-position navbar; without it (as we found the hard way) content renders
+     partly hidden underneath. */}}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale | default .Site.Language.Lang }}">
+  <head>
+    <title>{{ .Page.Title }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}" />
+    {{- partial "header.html" . -}}
+    {{- partial "opengraph.html" . -}}
+    {{- partial "twitter_cards.html" . -}}
+    {{- partial "analytics.html" . -}}
+    {{ with resources.Get "scripts/core/theme-scheme.js" | fingerprint }}
+    <script integrity="{{ .Data.Integrity }}">
+      {{ .Content | safeJS }}
+    </script>
+    {{ end }}
+  </head>
+  <body data-bs-spy="scroll" data-bs-target="#top-navbar" data-bs-offset="100">
+    {{- partial "navigators/navbar.html" . -}}
+
+    <div class="container-fluid anchor pb-5">
+      <h1 class="text-center">{{ .Page.Title }}</h1>
+      <div class="container">
+        <div class="post-content">
+          {{ .Page.Content }}
+        </div>
+      </div>
+    </div>
+
+    {{ $footerTemplate := site.Params.footer.template | default "footer.html" }}
+    {{- partial $footerTemplate . -}}
+    {{ partial "scripts.html" . }}
+    {{- partial "misc/support.html" . -}}
+  </body>
+</html>

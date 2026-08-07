@@ -1,0 +1,31 @@
+section:
+  name: Education
+  id: education
+  enable: false
+  weight: 4
+  showOnNavbar: false
+
+degrees:
+- name: PhD
+  icon: fa-microscope
+  timeframe: "Feb 2017"
+  institution:
+    name: City University of Hong Kong
+    url: "https://www.cityu.edu.hk/"
+  customSections:
+  - name: Dissertation
+    content: "Surrogate-Based Approximation of Blocking Probability in Overflow Loss Systems"
+
+- name: MSc in Multimedia Information Technology (Distinction)
+  icon: fa-graduation-cap
+  timeframe: "Jul 2011"
+  institution:
+    name: City University of Hong Kong
+    url: "https://www.cityu.edu.hk/"
+
+- name: Bachelor of Mathematics (Distinction)
+  icon: fa-university
+  timeframe: "Jun 2010"
+  institution:
+    name: University of Waterloo
+    url: "https://uwaterloo.ca/"

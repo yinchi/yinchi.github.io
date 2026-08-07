@@ -1,0 +1,45 @@
+section:
+  name: Experience
+  id: experiences
+  enable: false
+  weight: 5
+  showOnNavbar: false
+
+experiences:
+- company:
+    name: University of Cambridge
+    url: "https://www.ifm.eng.cam.ac.uk/"
+    location: Cambridge, UK
+    overview: Institute for Manufacturing (IfM)
+  positions:
+  - designation: Research Associate
+    start: 2021
+    end: 2026
+    responsibilities:
+    - Built discrete-event simulation (DES) models to analyze clinical lab workflows, enabling
+      KPI estimation and scenario testing to support operational decision-making by NHS
+      stakeholders, in collaboration with stakeholders at the Cambridge University Hospitals
+      (CUH) NHS Trust.
+    - Designed DES models to assist operational decision-making at CUH, by predicting hospital
+      bed demand caused by respiratory disease epidemics, including statistical distribution
+      fitting for patient stay durations. Created a Python-based web interface (using Plotly and
+      Dash) allowing non-technical CUH staff to run simulations and explore scenarios
+      independently.
+
+- company:
+    name: City University of Hong Kong
+    url: "https://www.cityu.edu.hk/"
+    location: Hong Kong
+    overview: Developed stochastic and simulation models for healthcare and telecommunications
+      systems, focusing on capacity planning and optimisation of telecommunications systems and
+      intensive care networks.
+  positions:
+  - designation: Research Associate
+    start: 2020
+    end: 2021
+  - designation: Research Fellow
+    start: 2018
+    end: 2020
+  - designation: Postdoctoral Fellow
+    start: 2017
+    end: 2018

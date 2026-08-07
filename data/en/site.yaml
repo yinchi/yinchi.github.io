@@ -1,0 +1,21 @@
+description: Portfolio and personal site of Yin-Chi Chan.
+
+customMenus:
+- name: About
+  url: /about/
+  hideFromNavbar: false
+  showOnFooter: true
+- name: Projects
+  url: /projects/
+  hideFromNavbar: false
+  showOnFooter: true
+- name: Publications
+  url: /publications/
+  hideFromNavbar: false
+  showOnFooter: true
+
+openGraph:
+  title: Yin-Chi Chan
+  type: website
+  description: Portfolio and personal site of Yin-Chi Chan.
+  image: images/author/yinchi.png

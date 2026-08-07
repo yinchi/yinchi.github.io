@@ -1,0 +1,38 @@
+section:
+  name: Selected projects
+  id: projects
+  enable: true
+  weight: 2
+  showOnNavbar: false
+
+projects:
+- name: Ring Puzzle
+  url: "https://yinchi.github.io/ring_puzzle/"
+  summary: >
+    Clone of the classic Top Spin puzzle by Binary Arts. Includes an auto-solver based on a
+    greedy algorithm plus an endgame table lookup.
+    [Read the write-up](https://yinchi.github.io/blog/2026/05/15/top-spin/).
+  tags: ["hobby", "puzzle"]
+
+- name: HarvardX Movielens Project
+  url: "https://yinchi.github.io/harvardx-movielens/"
+  summary: >
+    R project for the edX course HarvardX PH125.9x "Data Science: Capstone" &mdash; a movie
+    recommendation system using linear regression with matrix factorisation, achieving an
+    RMSE of 0.782 on the test set.
+  tags: ["academic", "r"]
+
+- name: HarvardX Higgs Classification
+  url: "https://yinchi.github.io/harvardx-higgs/"
+  summary: >
+    R project for the edX course HarvardX PH125.9x "Data Science: Capstone" &mdash; neural
+    network classification of particle collision events from the HIGGS dataset, achieving an
+    AUC of 0.877.
+  tags: ["academic", "r"]
+
+- name: CodeCrafters Profile
+  url: "https://app.codecrafters.io/users/yinchi"
+  summary: >
+    Progress tracker for CodeCrafters coding challenges &mdash; building simplified versions
+    of an HTTP server, a tree-walk interpreter for the Lox language, and a CLI LLM tool.
+  tags: ["hobby", "codecrafters"]

@@ -1,0 +1,15 @@
+# some information about you
+name: "Yin-Chi Chan"
+nickname: "Yin-Chi"
+greeting: "Hi, I am"
+image: "images/author/yinchi.png"
+
+contactInfo:
+  email: "yinchichan@pm.me"
+  github: yinchi
+
+# some summary about what you do
+summary:
+  - Data scientist / backend & data-focused software engineer
+  - Former research associate at the Institute for Manufacturing, University of Cambridge
+  - Simulation modelling of stochastic systems, e.g. in healthcare service delivery

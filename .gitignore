@@ -1,0 +1,16 @@
+.claude/
+plan-*.md
+
+# Hugo
+public/
+resources/
+hugo_stats.json
+.hugo_build.lock
+
+# Node / npm (Hugo's asset pipeline deps for Toha)
+node_modules/
+
+# Python (scripts/ — uv run with inline PEP 723 deps, no venv/lockfile normally)
+__pycache__/
+*.pyc
+.venv/

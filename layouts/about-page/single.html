@@ -1,0 +1,65 @@
+{{/* Standalone layout for the About page (type: about-page). Same homepage-section-style
+     structure as layouts/page/single.html -- see that file's comment -- but additionally
+     renders the Experience, Education, Skills, and Continuing Education (accomplishments)
+     sections (data/en/sections/experiences.yaml, education.yaml, skills.yaml,
+     accomplishments.yaml) below the prose body, calling Toha's own section partials
+     directly. Those sections have section.enable: false so they don't also appear on the
+     homepage -- they're only shown here, same as how publications/single.html reuses
+     cards/publication.html for the (homepage-disabled) Publications data. */}}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale | default .Site.Language.Lang }}">
+  <head>
+    <title>{{ .Page.Title }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}" />
+    {{- partial "header.html" . -}}
+    {{- partial "opengraph.html" . -}}
+    {{- partial "twitter_cards.html" . -}}
+    {{- partial "analytics.html" . -}}
+    {{ with resources.Get "scripts/core/theme-scheme.js" | fingerprint }}
+    <script integrity="{{ .Data.Integrity }}">
+      {{ .Content | safeJS }}
+    </script>
+    {{ end }}
+  </head>
+  <body data-bs-spy="scroll" data-bs-target="#top-navbar" data-bs-offset="100">
+    {{- partial "navigators/navbar.html" . -}}
+
+    <div class="container-fluid anchor pb-5">
+      <h1 class="text-center">{{ .Page.Title }}</h1>
+      <div class="container">
+        <div class="post-content">
+          {{ .Page.Content }}
+        </div>
+      </div>
+    </div>
+
+    {{ $experiences := hugo.Data.sections.experiences }}
+    {{ if (index hugo.Data site.Language.Lang).sections.experiences }}
+      {{ $experiences = (index hugo.Data site.Language.Lang).sections.experiences }}
+    {{ end }}
+    {{ partial "sections/experiences.html" $experiences }}
+
+    {{ $education := hugo.Data.sections.education }}
+    {{ if (index hugo.Data site.Language.Lang).sections.education }}
+      {{ $education = (index hugo.Data site.Language.Lang).sections.education }}
+    {{ end }}
+    {{ partial "sections/education.html" $education }}
+
+    {{ $skills := hugo.Data.sections.skills }}
+    {{ if (index hugo.Data site.Language.Lang).sections.skills }}
+      {{ $skills = (index hugo.Data site.Language.Lang).sections.skills }}
+    {{ end }}
+    {{ partial "sections/skills.html" $skills }}
+
+    {{ $accomplishments := hugo.Data.sections.accomplishments }}
+    {{ if (index hugo.Data site.Language.Lang).sections.accomplishments }}
+      {{ $accomplishments = (index hugo.Data site.Language.Lang).sections.accomplishments }}
+    {{ end }}
+    {{ partial "sections/accomplishments.html" $accomplishments }}
+
+    {{ $footerTemplate := site.Params.footer.template | default "footer.html" }}
+    {{- partial $footerTemplate . -}}
+    {{ partial "scripts.html" . }}
+    {{- partial "misc/support.html" . -}}
+  </body>
+</html>

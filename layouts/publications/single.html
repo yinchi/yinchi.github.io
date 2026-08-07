@@ -1,0 +1,52 @@
+{{/* Standalone layout for the "All Publications" page (type: publications). Same
+     homepage-section-style structure as layouts/page/single.html -- see that file's
+     comment -- but ranges over the generated publications data
+     (data/en/sections/publications.yaml) and reuses cards/publication.html directly,
+     same as the (now-disabled) homepage Publications section did. The "publications-section"
+     class is kept on the wrapper (even though the anchor/weight/navbar machinery it's
+     normally paired with isn't used here) because Toha's card/author/dark-mode styling
+     in sections/publications.scss is scoped entirely under that class -- without it, cards
+     fall back to unstyled defaults (which is why the author line looked barely legible). */}}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale | default .Site.Language.Lang }}">
+  <head>
+    <title>{{ .Page.Title }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}" />
+    {{- partial "header.html" . -}}
+    {{- partial "opengraph.html" . -}}
+    {{- partial "twitter_cards.html" . -}}
+    {{- partial "analytics.html" . -}}
+    {{ with resources.Get "scripts/core/theme-scheme.js" | fingerprint }}
+    <script integrity="{{ .Data.Integrity }}">
+      {{ .Content | safeJS }}
+    </script>
+    {{ end }}
+  </head>
+  <body data-bs-spy="scroll" data-bs-target="#top-navbar" data-bs-offset="100">
+    {{- partial "navigators/navbar.html" . -}}
+
+    {{ $publications := hugo.Data.sections.publications.publications }}
+    {{ if (index hugo.Data site.Language.Lang).sections.publications.publications }}
+      {{ $publications = (index hugo.Data site.Language.Lang).sections.publications.publications }}
+    {{ end }}
+
+    <div class="container-fluid anchor pb-5 publications-section">
+      <h1 class="text-center">{{ .Page.Title }}</h1>
+      <div class="container">
+        <div class="post-content">
+          {{ .Page.Content }}
+        </div>
+        <div class="row">
+          {{ range $publications }}
+            {{ partial "cards/publication" . }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+    {{ $footerTemplate := site.Params.footer.template | default "footer.html" }}
+    {{- partial $footerTemplate . -}}
+    {{ partial "scripts.html" . }}
+    {{- partial "misc/support.html" . -}}
+  </body>
+</html>

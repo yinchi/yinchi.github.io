@@ -1,0 +1,128 @@
+section:
+  name: Skills
+  id: skills
+  enable: false
+  weight: 6
+  showOnNavbar: false
+  filter: true
+
+buttons:
+- name: All
+  filter: "all"
+- name: Languages
+  filter: "languages"
+- name: Frameworks
+  filter: "frameworks"
+- name: Simulation
+  filter: "simulation"
+- name: Tools
+  filter: "tools"
+- name: Data
+  filter: "data"
+
+skills:
+- name: Python
+  icon: "fab fa-python"
+  summary: "Primary language for simulation modelling, data analysis, and backend tooling."
+  categories: ["languages"]
+
+- name: Rust
+  icon: "fab fa-rust"
+  summary: "Systems-level programming and CLI tooling."
+  categories: ["languages"]
+
+- name: TypeScript
+  icon: "fab fa-typescript"
+  summary: "Typed frontend and full-stack web development."
+  categories: ["languages"]
+
+- name: C / C++
+  summary: "Performance-critical and numerical code, including the Armadillo C++ matrix algebra library."
+  categories: ["languages"]
+
+- name: R
+  icon: "fab fa-r-project"
+  summary: "Statistical computing and the tidyverse data analysis ecosystem."
+  categories: ["languages"]
+
+- name: Dash
+  summary: "Interactive Python web dashboards for non-technical end-users."
+  categories: ["frameworks"]
+
+- name: FastAPI
+  summary: "Lightweight Python backend APIs."
+  categories: ["frameworks"]
+
+- name: React
+  icon: "fab fa-react"
+  summary: "Component-based frontend interfaces."
+  categories: ["frameworks"]
+
+- name: SimPy
+  summary: "Python discrete-event simulation library."
+  categories: ["simulation"]
+
+- name: salabim
+  summary: "Python discrete-event simulation library."
+  categories: ["simulation"]
+
+- name: Arena
+  summary: "Commercial DES software used in capacity-planning simulation studies."
+  categories: ["simulation"]
+
+- name: MATLAB / Simulink / Simscape
+  summary: "Model-based design and physical system simulation."
+  categories: ["simulation"]
+
+- name: Docker
+  icon: "fab fa-docker"
+  summary: "Containerised development and deployment environments."
+  categories: ["tools"]
+
+- name: Kubernetes
+  icon: "fab fa-kubernetes"
+  summary: "Container orchestration for scaling deployed workloads."
+  categories: ["tools"]
+
+- name: Git
+  icon: "fab fa-git-alt"
+  summary: "Version control software used in most of my projects."
+  categories: ["tools"]
+
+- name: GitHub Actions
+  icon: "fab fa-github"
+  summary: "CI/CD pipelines for automated testing and deployment."
+  categories: ["tools"]
+
+- name: pre-commit
+  summary: "Tool for setting up Git hooks such as code linters, formatters, and test suites."
+  categories: ["tools"]
+
+- name: Pytest / Tox
+  summary: "Automated testing across Python environments."
+  categories: ["tools"]
+
+- name: LaTeX
+  summary: "Document typesetting and BibTeX-based bibliography management."
+  categories: ["tools"]
+
+- name: SQL
+  icon: "fas fa-database"
+  summary: "Relational data storage and querying."
+  categories: ["data"]
+
+- name: openpyxl
+  summary: "Reading and writing Excel files programmatically."
+  categories: ["data"]
+
+- name: Pandas
+  summary: "Tabular data wrangling and analysis in Python."
+  categories: ["data"]
+
+- name: NumPy
+  summary: "Numerical computing in Python."
+  categories: ["data"]
+
+- name: R tidyverse
+  summary: "Data wrangling and visualisation in R."
+  categories: ["data"]

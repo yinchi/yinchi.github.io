@@ -1,0 +1,63 @@
+section:
+  name: Continuing Education
+  id: accomplishments
+  enable: false
+  weight: 7
+  showOnNavbar: false
+
+accomplishments:
+- name: Machine Learning Specialization
+  timeline: "Jul 2026"
+  organization:
+    name: DeepLearning.AI
+    url: "https://www.deeplearning.ai/"
+  courseOverview: "Professional Certificate (in collaboration with Stanford University) covering
+    supervised learning, advanced learning algorithms, and unsupervised/recommender/reinforcement
+    learning."
+  certificateURL: "https://learn.deeplearning.ai/certificates/0d2f4369-7045-4807-bef5-5ad43734fe04"
+
+- name: Mathematics for Machine Learning and Data Science
+  timeline: "May 2026"
+  organization:
+    name: DeepLearning.AI
+    url: "https://www.deeplearning.ai/"
+  courseOverview: "Professional Certificate covering the mathematical foundations behind machine
+    learning and data science techniques."
+  certificateURL: "https://learn.deeplearning.ai/certificates/b39ca729-694e-47a5-96d1-7c497104bb11"
+
+- name: Engineering Design and Simulation
+  timeline: "Apr 2026"
+  organization:
+    name: MathWorks
+    url: "https://www.mathworks.com/"
+  courseOverview: "Professional Certificate on model-based engineering design, using Simulink
+    and Simscape to model and simulate physical systems such as a quadcopter and a quarter-car
+    suspension model."
+  certificateURL: "https://credentials.edx.org/credentials/9cc92b3d7d2b4352b5c8526cec1bcb7c/"
+
+- name: Data Science
+  timeline: "Oct 2022"
+  organization:
+    name: HarvardX
+    url: "https://www.edx.org/school/harvardx"
+  courseOverview: "Professional Certificate covering the full data science workflow, from data
+    wrangling through statistical inference and machine learning, in R."
+  certificateURL: "https://credentials.edx.org/credentials/1184bdc6604049049f0e2d760cd6b57c/"
+
+- name: "Epidemics — Origins, Spread, Control and Communication"
+  timeline: "Mar 2021"
+  organization:
+    name: HKUx
+    url: "https://www.edx.org/school/hkux"
+  courseOverview: "Professional Certificate (University of Hong Kong) on the origins, spread,
+    control, and public communication of infectious disease outbreaks."
+  certificateURL: "https://credentials.edx.org/credentials/fbfbc19415ed49dc8896091540958dad/"
+
+- name: Introduction to Quantum Computing
+  timeline: "Feb 2020"
+  organization:
+    name: MIT xPro
+    url: "https://xpro.mit.edu/"
+  courseOverview: "Certificate covering the foundations of quantum computing, including qubits,
+    quantum gates, and quantum algorithms."
+  certificateURL: "https://xpro.mit.edu/certificate/1dd9172e-59e5-40ab-89e0-56a09f5c79e8/"

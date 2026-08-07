@@ -1,0 +1,44 @@
+section:
+  name: About
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: false
+  template: sections/about.html
+
+designation: >
+  Former research associate at the Institute for Manufacturing, University of Cambridge
+
+summary: |
+  **Data scientist / software engineer** with a PhD and 10+ years of research experience in the
+  simulation modelling of stochastic systems &mdash; spanning telecommunications and healthcare
+  service delivery. Currently based in the Toronto area, seeking industry roles in data science,
+  simulation, or backend/data-focused software engineering.
+
+  My path took me from Hong Kong to Canada as a child, back to Canada for a BMath at the
+  University of Waterloo, then to a Masters and PhD at the City University of Hong Kong. In
+  Dec 2021 I moved to the UK to work as a research associate at the University of Cambridge.
+
+  I work mainly in **Python**, with working experience in **TypeScript, Rust, C++, and R**
+  &mdash; always open to picking up new languages and frameworks. My Erdős number is 3: Erdős
+  &rarr; Charles K. Chui &rarr; [Guanrong Chen](https://www.ee.cityu.edu.hk/~gchen/erdos.html)
+  &rarr; me (thanks to [this paper](https://doi.org/10.1109/ACCESS.2020.3032584)). I also built
+  this site myself &mdash; DNS, CI/CD, and static-site deployment included &mdash; as a
+  hands-on dive into the full web-hosting pipeline.
+
+socialLinks:
+- name: Email
+  icon: "fas fa-envelope"
+  url: "yinchichan@pm.me"
+
+- name: Github
+  icon: "fab fa-github"
+  url: "https://github.com/yinchi"
+
+- name: Google Scholar
+  icon: "fab fa-google-scholar"
+  url: "https://scholar.google.com/citations?user=NJEB3swAAAAJ"
+
+- name: ORCID
+  icon: "fab fa-orcid"
+  url: "https://orcid.org/0000-0002-2405-8472"

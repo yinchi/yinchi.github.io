@@ -1,0 +1,24 @@
+{{/* Override of Toha's shortcodes/img.html: resolves an internal "src" against the
+     subpath-aware baseURL via helpers/get-local-path.html (upstream renders it raw).
+     External (http/https) src values are left untouched. */}}
+{{- $src := .Get "src" -}}
+{{- if not (or (strings.HasPrefix $src "http://") (strings.HasPrefix $src "https://")) -}}
+  {{- $src = partial "helpers/get-local-path.html" $src -}}
+{{- end -}}
+<img src="{{ $src }}"
+    {{ if .Get "title"}}
+        alt="{{.Get "title"}}"
+    {{end}}
+    {{ if .Get "width"}}
+        width="{{.Get "width"}}"
+    {{end}}
+    {{ if .Get "height"}}
+        height="{{.Get "height"}}"
+    {{end}}
+    {{ if .Get "float"}}
+        style="float: {{.Get "float"}};"
+    {{end}}
+    {{ if .Get "align"}}
+        class="{{.Get "align"}}"
+    {{end}}
+>

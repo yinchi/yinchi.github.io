@@ -1,0 +1,66 @@
+{{/* Override of Toha's cards/publication.html:
+     1. Author names are markdownified (upstream renders raw text) so the
+        **bold**-wrapping convert_publications.py applies to the site owner's own
+        name actually renders as bold instead of showing literal "**...**".
+     2. The card-body/summary block only renders when paper.summary is set, instead
+        of always emitting an empty <p></p> -- our yinchi.bib entries don't have
+        abstracts yet, and the empty block left a large blank gap in each card.
+     3. paper.url (e.g. "/papers/Foo2024.pdf") is resolved against the subpath-aware
+        baseURL via helpers/get-local-path.html -- upstream renders it raw, same bug as
+        shortcodes/img.html had.
+     4. Button label hardcoded to "PDF" instead of the i18n "project_details" key --
+        that key is shared with the Projects section's "Details" button, and paper.url
+        always points at a locally-hosted PDF here, so "PDF" is more accurate. */}}
+{{ $dataCategories:= slice "pub-all"}}
+{{ range .categories}}
+  {{ $dataCategories = $dataCategories | append (printf "pub-%s" .)}}
+{{end}}
+
+<div
+  class="col-12 p-2 pub-filtr-item"
+  data-category='{{ delimit $dataCategories ","}}'
+>
+  <div class="card mt-3">
+    <div class="card-header">
+      <h5 class="card-title mb-0">{{ .title }}</h5>
+      <div class="sub-title">
+        <span>
+          {{ if .publishedIn.url }}
+          <a class="" href="{{.publishedIn.url}}">{{ .publishedIn.name }}</a>
+          {{ else }}
+          <a class="">{{ .publishedIn.name }}</a>
+          {{ end }}
+        </span>
+        <span class="ms-2">{{ .publishedIn.date }}</span>
+      </div>
+      <div class="authors">
+        {{ range $index,$author:= .authors }}
+        {{if .url}}
+          <span class="me-2"><a class="" href="{{.url}}">{{ .name | markdownify }}</a></span>
+        {{ else }}
+        <span class="me-2 author-name">{{ .name | markdownify }}</span>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+    {{ if .paper.summary }}
+    <div class="card-body">
+      <p>{{ .paper.summary | markdownify }}</p>
+    </div>
+    {{ end }}
+    <div class="card-footer">
+      <div class="tags">
+        {{ range $index,$tag:= .tags }}
+            <span class="btn badge btn-info ms-1 p-1">
+              {{ $tag }}
+            </span>
+        {{ end }}
+      </div>
+      {{ if .paper.url }}
+      <div class="details-btn">
+        <a class="btn btn-outline-info ms-1 ps-2 mb-2" href="{{ partial "helpers/get-local-path.html" .paper.url }}" target="_blank" rel="noopener" role="button">PDF</a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>

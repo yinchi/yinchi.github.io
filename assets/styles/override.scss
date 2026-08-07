@@ -1,0 +1,29 @@
+/* override this file for custom css */
+
+// Replace Toha's default hero background image with a coded gradient
+// (no stock photo, no watermark risk). !important needed: Toha's own
+// inline <style> block sets this same ID's background-image later in
+// the DOM, so it otherwise wins the cascade at equal specificity.
+#homePageBackgroundImageDivStyled {
+  background-image: linear-gradient(135deg, #1a2a6c 0%, #2a5298 50%, #1a2a6c 100%) !important;
+}
+
+html[data-theme='dark'] {
+  #homePageBackgroundImageDivStyled {
+    background-image: linear-gradient(135deg, #0d1638 0%, #16294f 50%, #0d1638 100%) !important;
+  }
+}
+
+// Toha's own heading-margin rule for markdown body content (.post-content h1/h2/h3...)
+// is nested under the content-section/sidebar/toc column structure that
+// layouts/page/single.html and layouts/publications/single.html deliberately don't use
+// (they bypass baseof.html entirely), so it never matches there. Same spacing values,
+// just scoped to .post-content alone instead of that whole ancestor chain.
+.post-content {
+  h1, h2 {
+    margin-top: 1.4rem;
+  }
+  h3, h4, h5, h6 {
+    margin-top: 1.3rem;
+  }
+}
