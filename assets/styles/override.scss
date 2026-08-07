@@ -14,6 +14,37 @@ html[data-theme='dark'] {
   }
 }
 
+// Toha's hero .greeting-subtitle and .typing-carousel have no max-width of their own,
+// so at wide viewports they stretch across the full .container (edge-to-edge at large
+// screen sizes) instead of reading as a focused headline. Narrowing and centering them
+// keeps the multi-line subtitle/typed-tagline text from feeling like a wall of text.
+.home {
+  .greeting-subtitle,
+  .typing-carousel {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Sticky-footer fix: our custom layouts (list/single/page/publications/about-page) each
+// wrap their main content in a single top-level ".container-fluid.anchor.pb-5" div,
+// directly followed by <footer>, with no min-height set anywhere in that chain. On short
+// pages (e.g. a Blog list with few posts) the footer ends up sitting mid-viewport instead
+// of pinned to the bottom. Standard flex sticky-footer pattern: body becomes a column flex
+// container spanning the full viewport height, the content wrapper grows to fill any
+// leftover space, and the footer (a plain sibling <footer>, not flex-managed) is pushed
+// to the bottom as a result.
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container-fluid.anchor.pb-5 {
+  flex: 1 0 auto;
+}
+
 // Toha's own heading-margin rule for markdown body content (.post-content h1/h2/h3...)
 // is nested under the content-section/sidebar/toc column structure that
 // layouts/page/single.html and layouts/publications/single.html deliberately don't use
