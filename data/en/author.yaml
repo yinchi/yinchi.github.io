@@ -1,8 +1,9 @@
 # some information about you
 name: "Yin-Chi Chan"
 nickname: "Yin-Chi"
-greeting: "Hi, I am"
+greeting: "Hello, my name is"
 image: "images/author/yinchi.png"
+subtitle: "Data scientist / backend & data-focused software engineer, currently seeking new roles"
 
 contactInfo:
   email: "yinchichan@pm.me"
@@ -11,6 +12,7 @@ contactInfo:
 
 # some summary about what you do
 summary:
-  - Data scientist / backend & data-focused software engineer
   - Former research associate at the Institute for Manufacturing, University of Cambridge
-  - Simulation modelling of stochastic systems, e.g. in healthcare service delivery
+  - PhD in stochastic systems performance analysis and estimation, with 20+ peer-reviewed publications, e.g. in telecommunications and healthcare service delivery
+  - Experienced across SimPy, salabim, Arena, and MATLAB/Simulink for discrete-event and physical-system simulation
+  - Extensive experience in Python, also knowledgeable in Rust, TypeScript, C++, and R
