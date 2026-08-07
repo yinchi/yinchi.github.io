@@ -37,6 +37,12 @@ params:
   features:
     theme:
       enable: true
+      # Default new visitors (empty localStorage) to the "light" scheme explicitly, rather
+      # than Toha's own default of "system" -- with "system", the navbar theme icon starts
+      # as the computer/system icon, which is less immediately recognizable as a light/dark
+      # toggle than the sun/moon icons the light/dark options themselves use.
+      services:
+        default: light
 
     blog:
       enable: true
