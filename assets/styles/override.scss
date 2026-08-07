@@ -50,6 +50,18 @@ html[data-theme='dark'] {
   }
 }
 
+// Toha's "footer-color" token (variables.scss) is the same near-black navy (#0f172a) in
+// both light and dark themes -- not theme-aware -- so in light mode the footer reads as
+// jarringly dark against the light page background above it. Lightening it in light mode
+// specifically to dark mode's own "bg-primary" (#1f2937, lighter than #0f172a) keeps the
+// same dark-surface footer aesthetic without such a stark jump from the page above it.
+// Scoped to light mode only -- dark mode keeps Toha's original #0f172a footer untouched.
+html[data-theme='light'] {
+  .footer {
+    background-color: get-dark-color('bg-primary') !important;
+  }
+}
+
 // Sticky-footer fix: our custom layouts (list/single/page/publications/about-page) each
 // wrap their main content in a single top-level ".container-fluid.anchor.pb-5" div,
 // directly followed by <footer>, with no min-height set anywhere in that chain. On short

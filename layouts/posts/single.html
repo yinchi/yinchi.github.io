@@ -36,7 +36,7 @@
           <p class="text-muted">
             {{ if $showDate }}{{ .Page.Date | time.Format ":date_full" }}{{ end }}
             {{ if and $showDate $showReadingTime }} | {{ end }}
-            {{ if $showReadingTime }}{{ .ReadingTime }}{{i18n "minute" .ReadingTime }}{{ end }}</p>
+            {{ if $showReadingTime }}{{ .ReadingTime }} {{ i18n "minute" .ReadingTime }}{{ end }}</p>
         </div>
         {{ end }}
 
