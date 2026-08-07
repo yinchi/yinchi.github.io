@@ -16,7 +16,16 @@
         shortcodes/img.html had.
      4. Button label hardcoded to "PDF" instead of the i18n "project_details" key --
         that key is shared with the Projects section's "Details" button, and paper.url
-        always points at a locally-hosted PDF here, so "PDF" is more accurate. */}}
+        always points at a locally-hosted PDF here, so "PDF" is more accurate.
+     5. Optional second "Slides" button when paper.slidesUrl is set (populated by
+        convert_publications.py for entries with a matching {citekey}_slides.pdf under
+        static/papers/ or static/preprints/) -- not every entry has a slide deck, so
+        this is conditional like the PDF button. Both buttons share a single
+        ".details-btn" wrapper (rather than one each) so they group together as one
+        flex item on the right: Toha's own publications.scss sets
+        ".card-footer { display: flex; justify-content: space-between }", which would
+        otherwise spread PDF and Slides apart across the footer instead of keeping them
+        together. */}}
 {{ $dataCategories:= slice "pub-all"}}
 {{ range .categories}}
   {{ $dataCategories = $dataCategories | append (printf "pub-%s" .)}}
@@ -62,9 +71,14 @@
             </span>
         {{ end }}
       </div>
-      {{ if .paper.url }}
+      {{ if or .paper.url .paper.slidesUrl }}
       <div class="details-btn">
+        {{ if .paper.url }}
         <a class="btn btn-outline-info ms-1 ps-2 mb-2" href="{{ partial "helpers/get-local-path.html" .paper.url }}" target="_blank" rel="noopener" role="button">PDF</a>
+        {{ end }}
+        {{ if .paper.slidesUrl }}
+        <a class="btn btn-outline-info ms-1 ps-2 mb-2" href="{{ partial "helpers/get-local-path.html" .paper.slidesUrl }}" target="_blank" rel="noopener" role="button">Slides</a>
+        {{ end }}
       </div>
       {{ end }}
     </div>

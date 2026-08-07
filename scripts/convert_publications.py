@@ -100,6 +100,14 @@ def paper_url(citekey: str, pubstate: str) -> str | None:
     return None
 
 
+def slides_url(citekey: str, pubstate: str) -> str | None:
+    directory = PREPRINTS_DIR if pubstate == "preprint" else PAPERS_DIR
+    slides_path = directory / f"{citekey}_slides.pdf"
+    if slides_path.is_file():
+        return f"/{directory.name}/{citekey}_slides.pdf"
+    return None
+
+
 def convert_entry(citekey: str, entry) -> dict | None:
     fields = entry.fields
     missing = [f for f in REQUIRED_FIELDS if f not in fields]
@@ -128,6 +136,10 @@ def convert_entry(citekey: str, entry) -> dict | None:
 
     url = paper_url(citekey, pubstate)
     pub["paper"]["url"] = url or doi_url
+
+    slides = slides_url(citekey, pubstate)
+    if slides:
+        pub["paper"]["slidesUrl"] = slides
 
     return pub
 

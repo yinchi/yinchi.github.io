@@ -71,6 +71,7 @@ publications:
   - name: A. K. Parlikad
   paper:
     url: /papers/ChanProcess2024.pdf
+    slidesUrl: /papers/ChanProcess2024_slides.pdf
   tags: []
 - title: Dynamics of a susceptible-infected-recovered model on complex networks with interregional migration
   publishedIn:
@@ -115,6 +116,7 @@ publications:
   - name: D. Franks
   paper:
     url: /papers/ChanSimulation2023.pdf
+    slidesUrl: /papers/ChanSimulation2023_slides.pdf
   tags: []
 - title: 'Low-cost digitalisation opportunities in healthcare: a histopathology department case study'
   publishedIn:
@@ -313,4 +315,5 @@ publications:
   - name: M. Zukerman
   paper:
     url: /papers/ChanPerformance2015.pdf
+    slidesUrl: /papers/ChanPerformance2015_slides.pdf
   tags: []
