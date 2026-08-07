@@ -2,9 +2,15 @@
      1. Author names are markdownified (upstream renders raw text) so the
         **bold**-wrapping convert_publications.py applies to the site owner's own
         name actually renders as bold instead of showing literal "**...**".
-     2. The card-body/summary block only renders when paper.summary is set, instead
-        of always emitting an empty <p></p> -- our yinchi.bib entries don't have
-        abstracts yet, and the empty block left a large blank gap in each card.
+     2. Split into header (title only) / body (venue, date, authors, optional summary) /
+        footer (tags, PDF button), instead of upstream cramming title+venue+authors all
+        into .card-header and only conditionally using .card-body for a summary. Two
+        reasons: matches the header/body/footer three-tier structure every other card
+        type on the site uses (see override.scss's card-header/card-head background
+        rules -- with everything in .card-header, these cards couldn't get the same
+        two-tone treatment), and previously left a big blank gap when paper.summary was
+        unset (true for all of yinchi.bib currently), since .card-body was skipped
+        entirely rather than still holding the venue/author info.
      3. paper.url (e.g. "/papers/Foo2024.pdf") is resolved against the subpath-aware
         baseURL via helpers/get-local-path.html -- upstream renders it raw, same bug as
         shortcodes/img.html had.
@@ -22,7 +28,9 @@
 >
   <div class="card mt-3">
     <div class="card-header">
-      <h5 class="card-title mb-0">{{ .title }}</h5>
+      <h5 class="card-title mb-1">{{ .title }}</h5>
+    </div>
+    <div class="card-body">
       <div class="sub-title">
         <span>
           {{ if .publishedIn.url }}
@@ -42,12 +50,10 @@
         {{ end }}
         {{ end }}
       </div>
+      {{ if .paper.summary }}
+      <p class="mt-2 mb-0">{{ .paper.summary | markdownify }}</p>
+      {{ end }}
     </div>
-    {{ if .paper.summary }}
-    <div class="card-body">
-      <p>{{ .paper.summary | markdownify }}</p>
-    </div>
-    {{ end }}
     <div class="card-footer">
       <div class="tags">
         {{ range $index,$tag:= .tags }}

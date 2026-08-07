@@ -18,11 +18,11 @@
           {{ end }}
 
           <img class="card-img-xs" src="{{ $logoImage.RelPermalink }}" alt="{{ .name }}" />
-          <h5 class="card-title">{{ .name }}</h5>
+          <h5 class="card-title mb-1">{{ .name }}</h5>
         {{ else if .icon }}
-          <h5 class="card-title"><i class="{{ .icon }}"></i> {{ .name }}</h5>
+          <h5 class="card-title mb-1"><i class="{{ .icon }}"></i> {{ .name }}</h5>
         {{ else }}
-          <h5 class="card-title">{{ .name }}</h5>
+          <h5 class="card-title mb-1">{{ .name }}</h5>
         {{ end }}
       </div>
       <div class="card-body text-justify pt-1 pb-1">

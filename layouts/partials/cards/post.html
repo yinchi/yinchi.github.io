@@ -1,13 +1,27 @@
-{{/* Override of Toha's cards/post.html: drops the .card-head hero-image block entirely.
-     It called the same helpers/get-hero.html used by the (now-removed) single-post hero
-     banner, which falls back to the generic images/default-hero.jpg stock photo when a
-     post has no custom hero.{jpg,png,svg} bundle file -- none of ours do, so every card
-     on the post list page showed the identical stock office illustration. */}}
-<div class="post-card">
-  <div class="card">
+{{/* Override of Toha's cards/post.html:
+     1. Drops the .card-head hero-image block entirely. It called the same
+        helpers/get-hero.html used by the (now-removed) single-post hero banner, which
+        falls back to the generic images/default-hero.jpg stock photo when a post has no
+        custom hero.{jpg,png,svg} bundle file -- none of ours do, so every card on the
+        post list page showed the identical stock office illustration.
+     2. The outer wrapper uses plain Bootstrap responsive column classes instead of
+        Toha's ".post-card" class, whose width is a set of viewport-breakpoint percentages
+        (e.g. 100%/5 at the widest breakpoint) calculated against the old sidebar-having
+        content-section width -- fragile now that that column no longer exists, and the
+        source of a card grid that didn't consistently fit the page.
+     3. Title moved into its own .card-header (upstream put it in .card-body) so blog
+        cards get the same header/body two-tone background split as every other card
+        type on the site (Projects/Skills/Publications/Accomplishments) -- see
+        override.scss's card-header/card-head rules. */}}
+<div class="col-sm-6 col-lg-4 col-xl-3 mb-4">
+  <div class="card h-100">
+    <div class="card-header">
+      <a href="{{ .RelPermalink | relLangURL }}" class="post-card-link">
+        <h5 class="card-title mb-1">{{ .Title }}</h5>
+      </a>
+    </div>
     <div class="card-body">
       <a href="{{ .RelPermalink | relLangURL }}" class="post-card-link">
-        <h5 class="card-title">{{ .Title }}</h5>
         <p class="card-text post-summary">{{ .Summary | plainify }}</p>
       </a>
       {{ if and site.Params.features.tags.enable site.Params.features.tags.on_card }}

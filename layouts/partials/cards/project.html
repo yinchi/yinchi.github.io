@@ -1,0 +1,107 @@
+{{/* Override of Toha's cards/project.html:
+     1. card-title uses "mb-1" instead of "mb-0" for a small but non-zero gap below the
+        header text, matching every other card type's title on the site (see
+        override.scss's card-header/card-head rules).
+     2. Button label hardcoded to "Link" instead of the i18n "project_details" key --
+        same reasoning as cards/publication.html's "PDF" label: avoids touching a key
+        also used elsewhere (sections/achievements/entry.html, upstream, currently
+        unused on this site), and "Link" better describes a bare external URL than
+        "Details" does. */}}
+<div class="col-sm-12 col-md-6 col-lg-4 p-2 filtr-item" data-category='all, {{ delimit  .tags ","}}'>
+  <div class="card mt-1">
+    <div class="card">
+      {{- $target := .target | default "blank" -}}
+      {{- $targetAttr := "_blank" -}}
+      {{- if eq $target "self" -}}{{- $targetAttr = "_self" -}}{{- end -}}
+      {{/* Process internal links (not http[s]://) */}}
+      {{- $projectURL := .url -}}
+      {{- if and $projectURL (not (or (hasPrefix $projectURL "http://") (hasPrefix $projectURL "https://"))) -}}
+        {{- $projectURL = partial "helpers/get-page-url.html" $projectURL -}}
+      {{- end -}}
+      <a href="{{ if .repo }}{{ .repo }}{{ else if $projectURL }}{{ $projectURL }}{{ else }}javascript:void(0){{ end }}" {{ if or
+        .repo $projectURL }}target="{{ $targetAttr }}" rel="noopener" {{ end }}>
+        {{ if .image }}
+        <div class="card-head">
+          {{ $imageImage:= resources.Get .image}}
+          {{ if $imageImage }}
+          {{/* svg don't support "Fit" operation */}}
+          {{ if ne $imageImage.MediaType.SubType "svg" }}
+          {{ $imageImage = $imageImage.Fit "500x500" }}
+          {{ end }}
+          <img class="card-img-top" src="{{ $imageImage.RelPermalink }}" alt="{{ .name }}" loading="lazy" {{ if ne
+            $imageImage.MediaType.SubType "svg" }}width="{{ $imageImage.Width }}" height="{{ $imageImage.Height }}" {{
+            end }} />
+          {{ end }}
+        </div>
+        {{ end }}
+        <div class="card-header">
+          <div>
+            <div class="d-flex">
+              {{ if .logo }}
+
+              {{ if eq (len (findRE ".*/.*" .logo) ) 0 }}
+
+              <i style="padding-right: 0.25em" class="{{.logo}} h4"></i>
+
+              {{ else }}
+
+              {{ $logoImage:= resources.Get .logo}}
+              {{ if $logoImage }}
+              {{/* svg don't support "Fit" operation */}}
+              {{ if ne $logoImage.MediaType.SubType "svg" }}
+              {{ $logoImage = $logoImage.Fit "24x24" }}
+              {{ end }}
+              <img class="card-img-xs" src="{{ $logoImage.RelPermalink }}" alt="{{ .name }}" {{ if ne
+                $logoImage.MediaType.SubType "svg" }}width="{{ $logoImage.Width }}" height="{{ $logoImage.Height }}" {{
+                end }} />
+              {{ end }}
+              {{ end }}
+
+              {{ end }}
+
+              <h5 class="card-title mb-1">{{ .name }}</h5>
+            </div>
+            <div class="sub-title">
+              <span>{{ .role }}</span>
+              <span>{{ .timeline }}</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="card-body text-justify pt-1 pb-2">
+        <p>{{ .summary | markdownify }}</p>
+        <!-- Display project card technology tags -->
+        <div class="project-card-footer">
+          {{ if .tags }}
+          <div class="project-tags-holder">
+            {{ range $index,$tag:= .tags }}
+            {{ if $.linkTags }}
+            <a href="{{ printf "/tags/%s/" (urlize $tag) | relLangURL }}">
+              <span class="btn badge btn-info">
+                {{ $tag }}
+              </span>
+            </a>
+            {{ else }}
+            <span class="btn badge btn-info">
+              {{ $tag }}
+            </span>
+            {{ end }}
+            {{ end }}
+          </div>
+          {{ end }}
+          <div class="project-btn-holder">
+            {{ if .repo }}
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button project-btn d-none" href="{{ .repo }}" data-icon="octicon-standard"
+              data-show-count="true" aria-label="Star {{ .name }}">{{ i18n "project_star" }}</a>
+            {{ else if $projectURL }}
+            <span>
+              <a class="btn btn-outline-info btn-sm" href="{{ $projectURL }}" target="{{ $targetAttr }}" rel="noopener">Link</a>
+            </span>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

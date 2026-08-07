@@ -1,0 +1,27 @@
+{{/* Override of Toha's cards/accomplishments.html: card-title uses "mb-1" instead of
+     "mb-0" for a small but non-zero gap below the header text, matching every other
+     card type's title on the site (see override.scss's card-header/card-head rules).
+
+     Note: unlike Publications, this card still crams organization/timeline into
+     .card-header alongside the title rather than .card-body -- not restructured here
+     since it wasn't in scope for this pass, but worth revisiting for the same reason
+     Publications was. */}}
+<div class="col-md-12 col-lg-6 p-2">
+  <div class="card mt-3">
+    <div class="card-header">
+      <h5 class="card-title mb-1">{{ .name }}</h5>
+      <div class="sub-title">
+        <span><a href="{{ .organization.url }}" title="{{ .organization.name }}" target="_blank" rel="noopener">{{ .organization.name }}</a></span>
+        <span class="ms-2">{{ .timeline }}</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>{{ .courseOverview | markdownify }}</p>
+    </div>
+    <div class="card-footer">
+      {{ if .certificateURL }}
+        <a class="btn btn-outline-info ms-1 ps-2 mb-2" href="{{ .certificateURL }}" target="_blank" rel="noopener" role="button">{{ i18n "view_certificate"}}</a>
+      {{ end }}
+    </div>
+  </div>
+</div>

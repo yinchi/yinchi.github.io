@@ -1,19 +1,11 @@
 {{/* Standalone layout for blog posts (type: posts, from the content/posts/ section).
-     Toha's own _default/single.html (used unmodified until now) wraps post content in a
-     3-column layout (content-section 60% + a non-functional search sidebar + a TOC column)
-     -- the same layout already stripped from About/Projects/Publications for being dead
-     weight. Here it caused code blocks to overflow/scroll even when they'd fit on a normal
-     full-width page, since .content-section caps at max-width:60%.
-
-     This reuses Toha's own "content" block markup (author/date line, title, tags, post
-     body, share/edit-this-page row) verbatim -- that CSS is nested under
-     .content-section/.content/.read-area, so those wrapper classes are kept as-is rather
-     than rewritten, and only .content-section's own width cap is overridden (scoped to
-     body.type-posts in override.scss) to let it fill the page. The sidebar and TOC
-     sections, and the next/prev post navigator (whose styling lives under the now-dropped
-     TOC section), are dropped entirely rather than ported over. The hero-image banner is
-     also dropped -- every post fell back to the same generic stock photo anyway (see
-     override.scss for why), and it wasn't wanted even as a plain color/gradient. */}}
+     Uses the same container-fluid-anchor + container pattern as the other custom layouts
+     (about-page, page, publications) instead of Toha's own nested content-section/content/
+     read-area/page-content structure, so it renders consistently with the rest of the
+     site. The sidebar, TOC, next/prev navigator, and hero-image banner are all dropped
+     (see about-page/single.html and override.scss for why). Author avatar/name/date line,
+     title, tags, and share-buttons row are plain markup with their own styling in
+     override.scss rather than depending on Toha's nested selectors for them. */}}
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Locale | default .Site.Language.Lang }}">
   <head>
@@ -30,79 +22,65 @@
     {{ end }}
   </head>
 
-  <body class="type-{{ .Page.Type }} kind-{{ .Page.Kind }}" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
-    <div class="container-fluid bg-secondary wrapper">
-      {{- partial "navigators/navbar.html" . -}}
+  <body data-bs-spy="scroll" data-bs-target="#top-navbar" data-bs-offset="100">
+    {{- partial "navigators/navbar.html" . -}}
 
-      <section class="content-section" id="content-section">
-        <div class="content">
-          <div class="container-fluid p-0 read-area">
-            <div class="page-content">
-              {{ $showDate := site.Params.features.showDate.singlePage | default true }}
-              {{ $showReadingTime := site.Params.features.readingTime.enable | default true }}
-              {{ if site.Params.features.blog.showAuthor | default true }}
-              <div class="author-profile ms-auto align-self-lg-center">
-                <img class="rounded-circle" src='{{ partial "helpers/get-author-image.html" . }}' alt="Author Image">
-                <h5 class="author-name">{{ partial "helpers/get-author-name.html" . }}</h5>
-                <p class="text-muted">
-                  {{ if $showDate }}{{ .Page.Date | time.Format ":date_full" }}{{ end }}
-                  {{ if and $showDate $showReadingTime }} | {{ end }}
-                  {{ if $showReadingTime }}{{ .ReadingTime }}{{i18n "minute" .ReadingTime }}{{ end }}</p>
-              </div>
-              {{ else }}
-              <div style="margin-bottom: 80px;"></div>
-              {{ end }}
+    <div class="container-fluid anchor pb-5">
+      <div class="container">
+        {{ $showDate := site.Params.features.showDate.singlePage | default true }}
+        {{ $showReadingTime := site.Params.features.readingTime.enable | default true }}
+        {{ if site.Params.features.blog.showAuthor | default true }}
+        <div class="post-author-profile text-center">
+          <img class="rounded-circle" src='{{ partial "helpers/get-author-image.html" . }}' alt="Author Image">
+          <h5 class="mb-0 mt-2">{{ partial "helpers/get-author-name.html" . }}</h5>
+          <p class="text-muted">
+            {{ if $showDate }}{{ .Page.Date | time.Format ":date_full" }}{{ end }}
+            {{ if and $showDate $showReadingTime }} | {{ end }}
+            {{ if $showReadingTime }}{{ .ReadingTime }}{{i18n "minute" .ReadingTime }}{{ end }}</p>
+        </div>
+        {{ end }}
 
-              <div class="title">
-                <h1>{{ .Page.Title }}</h1>
-              </div>
+        <h1 class="text-center">{{ .Page.Title }}</h1>
 
-              {{ if site.Params.features.tags.enable }}
-              {{ partial "misc/tags.html" .Params.tags }}
-              {{ end }}
-              <div class="post-content" id="post-content">
-                {{ .Page.Content }}
-              </div>
+        {{ if site.Params.features.tags.enable }}
+        {{ partial "misc/tags.html" .Params.tags }}
+        {{ end }}
+        <div class="post-content">
+          {{ .Page.Content }}
+        </div>
 
-              <!-- Share or Contribute -->
-              <div class="row ps-3 pe-3">
-                <div class="col-md-6 share-buttons">
-                  {{ if site.Params.features.blog.shareButtons }}
-                  <strong>{{ i18n "share_on" }}:</strong>
-                  {{ if site.Params.features.blog.shareButtons.facebook }}
-                  <a class="btn icon-button bg-facebook" href="https://www.facebook.com/sharer.php?u={{ .Permalink }}"
-                    target="_blank">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                  {{ end }}
-                  {{ if site.Params.features.blog.shareButtons.twitter }}
-                  <a class="btn icon-button bg-twitter"
-                    href="https://twitter.com/share?url={{ .Permalink }}&text={{ .Title }}&via={{- site.Title -}}"
-                    target="_blank">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  {{ end }}
-                  {{ if site.Params.features.blog.shareButtons.linkedin }}
-                  <a class="btn icon-button bg-linkedin"
-                    href="https://www.linkedin.com/shareArticle?url={{ .Permalink }}&title={{ .Title }}" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  {{ end }}
-                  {{ end }}
-                </div>
-              </div>
-
-              {{ if site.Params.features.comment.enable }}
-              {{ partial "comments.html" site.Params.features.comment.services }}
-              {{ end }}
-            </div>
+        <!-- Share or Contribute -->
+        <div class="row ps-3 pe-3">
+          <div class="col-md-6 share-buttons">
+            {{ if site.Params.features.blog.shareButtons }}
+            <strong>{{ i18n "share_on" }}:</strong>
+            {{ if site.Params.features.blog.shareButtons.facebook }}
+            <a class="btn icon-button bg-facebook" href="https://www.facebook.com/sharer.php?u={{ .Permalink }}"
+              target="_blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.twitter }}
+            <a class="btn icon-button bg-twitter"
+              href="https://twitter.com/share?url={{ .Permalink }}&text={{ .Title }}&via={{- site.Title -}}"
+              target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.linkedin }}
+            <a class="btn icon-button bg-linkedin"
+              href="https://www.linkedin.com/shareArticle?url={{ .Permalink }}&title={{ .Title }}" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            {{ end }}
+            {{ end }}
           </div>
         </div>
-        <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-          title="Scroll to top">
-          <i class="fas fa-chevron-circle-up"></i>
-        </a>
-      </section>
+
+        {{ if site.Params.features.comment.enable }}
+        {{ partial "comments.html" site.Params.features.comment.services }}
+        {{ end }}
+      </div>
     </div>
 
     {{ $footerTemplate := site.Params.footer.template | default "footer.html" }}

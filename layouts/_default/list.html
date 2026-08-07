@@ -1,39 +1,59 @@
-{{/* Override of Toha's _default/list.html:
-     1. Drops the "sidebar" block entirely (it only ever held the non-functional search box
-        and a redundant post-list tree -- the same dead weight already stripped from every
-        single-page layout this session). baseof.html's {{ block "sidebar" }} renders
-        nothing when the child template doesn't define it, so simply omitting that define
-        block here is sufficient. Applies to every _default-list-templated page site-wide
-        (the posts list, and any taxonomy/category term pages), not just /posts/.
-     2. #post-card-holder changed from .container-fluid to .container: with the sidebar's
-        60%-wide column gone, upstream's full-bleed .container-fluid stretched the post
-        cards edge-to-edge with no margin. Using .container instead gives it the same
-        centered, capped-width treatment the navbar itself uses for its own inner content
-        (see navbar.html's own ".container" wrapping the brand/nav-links inside the
-        full-bleed ".top-navbar"). */}}
-{{ define "navbar" }}
-    {{ partial "navigators/navbar.html" . }}
-{{ end }}
+{{/* Override of Toha's _default/list.html. Rewritten as a full standalone layout (like
+     layouts/posts/single.html) using the same container-fluid-anchor + container pattern
+     as every other custom layout on the site, instead of Toha's baseof.html-driven
+     content-section/sidebar/toc column structure -- that structure's card-width math
+     (viewport-breakpoint percentages calculated against the old sidebar-narrowed column)
+     didn't reliably fit the page once the sidebar was removed, the same class of problem
+     already worked through for blog single-post pages. Applies to every _default-list-
+     templated page site-wide (the posts list, and any taxonomy/category term pages).
 
-{{ define "content" }}
-<section class="content-section" id="content-section">
-  <div class="content container-fluid" id="content">
-    <div class="container post-card-holder" id="post-card-holder">
-      {{ $posts := where .RegularPagesRecursive "Layout" "!=" "search" }}
-      {{ $posts = where $posts "Params.hidden" "!=" true }}
-      {{ $numShow := site.Params.features.pagination.maxPostsPerPage | default 12}}
-      {{ $paginator := .Paginate $posts $numShow }}
-      {{ range $paginator.Pages }}
-        {{ if .Layout }}
-          {{/* ignore the search.md file*/}}
-        {{ else }}
-          {{ partial "cards/post.html" . }}
-        {{ end }}
-      {{ end }}
+     Cards render in a plain Bootstrap .row (cards/post.html supplies its own responsive
+     .col-* classes), and the sidebar's search box is dropped entirely (dead weight --
+     search was never actually wired up; see chat history / commit log). */}}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale | default .Site.Language.Lang }}">
+  <head>
+    <title>{{ .Page.Title }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}" />
+    {{- partial "header.html" . -}}
+    {{- partial "opengraph.html" . -}}
+    {{- partial "twitter_cards.html" . -}}
+    {{- partial "analytics.html" . -}}
+    {{ with resources.Get "scripts/core/theme-scheme.js" | fingerprint }}
+    <script integrity="{{ .Data.Integrity }}">
+      {{ .Content | safeJS }}
+    </script>
+    {{ end }}
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target="#top-navbar" data-bs-offset="100">
+    {{- partial "navigators/navbar.html" . -}}
+
+    <div class="container-fluid anchor pb-5">
+      <h1 class="text-center">{{ .Page.Title }}</h1>
+      <div class="container">
+        <div class="row">
+          {{ $posts := where .RegularPagesRecursive "Layout" "!=" "search" }}
+          {{ $posts = where $posts "Params.hidden" "!=" true }}
+          {{ $numShow := site.Params.features.pagination.maxPostsPerPage | default 12}}
+          {{ $paginator := .Paginate $posts $numShow }}
+          {{ range $paginator.Pages }}
+            {{ if .Layout }}
+              {{/* ignore the search.md file*/}}
+            {{ else }}
+              {{ partial "cards/post.html" . }}
+            {{ end }}
+          {{ end }}
+        </div>
+        <div class="paginator">
+          {{ partial "pagination.html" . }}
+        </div>
+      </div>
     </div>
-    <div class="paginator">
-      {{ partial "pagination.html" . }}
-    </div>
-  </div>
-</section>
-{{ end }}
+
+    {{ $footerTemplate := site.Params.footer.template | default "footer.html" }}
+    {{- partial $footerTemplate . -}}
+    {{ partial "scripts.html" . }}
+    {{- partial "misc/support.html" . -}}
+  </body>
+</html>

@@ -36,35 +36,219 @@ html[data-theme='dark'] {
   }
 }
 
-// layouts/posts/single.html drops the sidebar/TOC columns but keeps Toha's own
-// content-section/content/read-area wrapper classes as-is (all of the hero/title/author/
-// post-content CSS is nested several levels under .content-section, so keeping the
-// ancestor class names means that CSS still applies unchanged). The one thing that does
-// need overriding is .content-section's own width cap (flex/max-width: 60%), sized on the
-// assumption of two sibling columns that no longer exist -- without this, code blocks
-// (and everything else) are squeezed into 60% of the page width and wrap/scroll
-// unnecessarily. Hugo/Toha already stamp "type-posts" on <body> for this content section,
-// so no extra class is needed to scope this. Selector must include ".wrapper" to match
-// Toha's own "body.kind-page .wrapper .content-section" rule's specificity (3 classes) --
-// at equal specificity source order would decide it, but this rule has one fewer class
-// than that, so it was silently losing the cascade despite being the later rule.
-body.type-posts .wrapper .content-section {
-  flex: 100%;
-  max-width: 100%;
+// layouts/posts/single.html's author avatar/name/date line -- plain markup styled here
+// rather than depending on Toha's own nested .author-profile selectors. Uses flexbox
+// (not text-align + margin:auto) to center the avatar: Toha's own global `img` reset sets
+// display:block with no auto margins (a ".center" class is needed for that, which nothing
+// here adds), so text-align on the parent has no effect on the image's own position --
+// flexbox centers it regardless of the image's own display value.
+.post-author-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+
+  img {
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }
 
-// .read-area was swapped from Bootstrap's .container (fixed max-width, sized for the old
-// 60%-wide column) to .container-fluid in layouts/posts/single.html. .page-content
-// (title/author line/post body) shouldn't stretch full-bleed though -- very long text
-// lines are hard to read -- so it gets its own centered reading-width cap here instead.
-// "top: -4.5rem" is also reset back to 0: that negative offset exists in Toha's own CSS
-// so page-content overlaps the bottom of the hero banner (for the avatar-straddling-the-
-// hero look); with the hero removed entirely, it just needs to sit normally.
-body.type-posts .page-content {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  top: 0;
+// Toha's post-summary truncation and card-footer bottom-pinning were both scoped under
+// ".post-card .card ..." (see cards.scss) -- cards/post.html no longer uses that wrapper
+// class (replaced with plain Bootstrap column classes), so re-declaring both generically
+// restores the same behavior: without the line-clamp, cards showed each post's full
+// (untruncated) summary text at wildly different lengths; without margin-top:auto, the
+// footer (date/Read button) sat immediately after that text instead of pinned to the
+// bottom of the (row-stretched, h-100) card.
+.post-summary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  max-height: 144px;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+// Scoped to blog cards' own column classes rather than a blanket ".card-footer" -- that
+// was too broad and started pushing Publications' card-footer down with a large gap
+// above it (Publications cards don't stretch to a shared row height the way blog cards
+// do via .h-100, so they never needed this, and never had it before).
+.col-sm-6, .col-lg-4, .col-xl-3 {
+  .card-footer {
+    margin-top: auto;
+  }
+}
+
+// Site-wide card background/border unification. Each card-bearing section had its own
+// bespoke treatment: Projects/Skills give only the header strip (.card-header/.card-head)
+// a distinct background, leaving the body the same near-invisible shade as the page
+// ("bg-card", nearly identical to "bg-primary" in dark mode -- see below); Publications/
+// Accomplishments use a colored top border instead of a background difference; plain
+// blog-post cards had neither. Rather than a full card redesign, this keeps each
+// section's own internal layout (tags/footer content) untouched and just makes the
+// background and border consistent across all of them.
+//
+// Header (.card-header/.card-head) vs. body (.card/.card-footer) use two different
+// shades -- rather than one flat color throughout. Two of Toha's named tokens were
+// tried first for the header and rejected: "bg-primary" is also the page's own body
+// background (Toha sets body{background: bg-primary}), so a header in that color was
+// indistinguishable from the page behind the card; "bg-card" turned out to be nearly
+// identical to "bg-primary" in light mode specifically (#fff vs #f8fafc) -- technically
+// a different value, but not visually distinct enough to read as a separate region.
+// Using a light tint of "accent-color" instead guarantees real contrast against both
+// the page and the body in both themes, and ties the header visually to the card's own
+// border (same accent-color, different opacity) rather than introducing an unrelated
+// hue. A uniform accent-color border replaces each section's own border treatment
+// (including Publications/Accomplishments' colored top border specifically).
+// !important is needed throughout: every rule here is overriding a same-or-higher-
+// specificity section-specific rule, several of which are themselves !important.
+.card,
+.card .card-footer {
+  background-color: get-light-color('bg-secondary') !important;
+}
+
+.card .card-header,
+.card .card-head {
+  background-color: rgba(get-light-color('accent-color'), 0.08) !important;
+}
+
+.card {
+  border: 1px solid rgba(get-light-color('accent-color'), 0.2) !important;
+  border-top: 1px solid rgba(get-light-color('accent-color'), 0.2) !important;
+}
+
+// Header padding was also inconsistent: Projects/Skills explicitly set
+// "padding: 0.7rem; padding-bottom: 0" (relying on the body's own top padding for
+// breathing room below the header text), while Publications/Accomplishments/Blog never
+// customized it and fall back to Bootstrap's default (0.5rem top+bottom, 1rem sides) --
+// a different-looking gap between the header text and the header/body divider line
+// depending on which section you're looking at. Standardizing all of them to the same
+// explicit padding.
+.card-header,
+.card-head {
+  padding: 0.5rem 1rem 0.35rem !important;
+}
+
+// Skills cards are noticeably smaller/denser than the others (an icon plus a short
+// name, vs. a full title elsewhere), so the general header padding above reads as too
+// generous specifically there -- a tighter variant rather than one size for every card.
+.skills-section .card .card-head {
+  padding: 0.4rem 0.7rem 0.25rem !important;
+}
+
+// Unifying header padding alone wasn't enough: .card-body's own top padding varies just
+// as much by section (Publications/Accomplishments: 0; Blog: Bootstrap's un-overridden
+// default of 1rem; Skills: 0.2rem; Projects: 0.7rem), so the total header-to-content gap
+// still differed per section even with the header side now consistent. Matched to the
+// header's own (reduced) bottom padding for symmetry.
+.card-body {
+  padding-top: 0.35rem !important;
+}
+
+.skills-section .card .card-body {
+  padding-top: 0.25rem !important;
+}
+
+// Same inconsistency at the bottom of the body: Projects/Skills/Accomplishments/Blog all
+// wrap their summary text in a plain <p>, which picks up Bootstrap's own reboot default
+// (p { margin-top: 0; margin-bottom: 1rem }) -- an extra 1rem gap before the footer that
+// Publications never had, since its body content is plain <div>s (.sub-title/.authors),
+// not a <p>, so no default margin applies there. Zeroing it so the gap comes only from
+// each card's own explicit padding, consistently, regardless of whether that particular
+// section happens to use a <p> tag or not.
+.card-body p {
+  margin-bottom: 0 !important;
+}
+
+// The blanket ".card .card-head" rule above loses to skills.scss's own rule
+// (.skills-section .card .card-head, 3 classes -- 4 with the html[data-theme=dark]
+// attribute selector in dark mode) despite both being !important -- !important only
+// changes which tier of the cascade competes first, rules within that tier are still
+// ranked by specificity. Matching the section-specific selector directly, per section as
+// needed, rather than trying to out-specify it generically. Applied in both themes for
+// the same reason even though this one happens to look acceptable in light mode without
+// it -- keeping the override logic consistent regardless of whether a given case
+// currently looks fine, rather than only patching visibly-broken ones.
+.skills-section .card .card-head {
+  background-color: rgba(get-light-color('accent-color'), 0.08) !important;
+}
+
+html[data-theme='dark'] {
+  .card,
+  .card .card-footer {
+    background-color: get-dark-color('bg-secondary') !important;
+  }
+
+  .card .card-header,
+  .card .card-head {
+    background-color: rgba(get-dark-color('accent-color'), 0.12) !important;
+  }
+
+  .card {
+    border: 1px solid rgba(get-dark-color('accent-color'), 0.2) !important;
+    border-top: 1px solid rgba(get-dark-color('accent-color'), 0.2) !important;
+  }
+
+  .skills-section .card .card-head {
+    background-color: rgba(get-dark-color('accent-color'), 0.12) !important;
+  }
+
+  // Special case, dark mode only (light mode already looks right without this): the
+  // homepage's "Selected projects" section sits on "bg-secondary" (it's the 2nd of the
+  // homepage's alternating-background sections -- see sections/home.html), the same
+  // color the unified card rule above already gives its cards, so body vs. section
+  // barely reads as distinct. Our standalone pages (About/Projects/Publications/Blog)
+  // don't have that alternating-section background at all -- they just show the plain
+  // page body color, "bg-primary". Matching these cards to that instead makes them
+  // blend into a page background the way they would on those pages, rather than
+  // visually doubling up with this section's own alternating background.
+  .projects-section .card {
+    background-color: get-dark-color('bg-primary') !important;
+  }
+}
+
+// Toha's post-card-footer muted-text color (date / reading time) was scoped under
+// ".post-card .card .card-footer span" -- lost along with ".post-card" itself when
+// cards/post.html's wrapper was replaced with plain Bootstrap columns. Restoring it
+// generically since nothing else currently sets .card-footer span's color.
+.card .card-footer span {
+  color: get-light-color('muted-text-color') !important;
+}
+
+html[data-theme='dark'] {
+  .card .card-footer span {
+    color: get-dark-color('muted-text-color') !important;
+  }
+}
+
+// Toha's publications.scss sets .sub-title/.authors/.author-name color scoped under
+// ".publications-section .card .card-header" -- broken when cards/publication.html was
+// restructured to move that content into .card-body instead (so header/body could get
+// the same two-tone background split every other card type has). Re-declaring without
+// the .card-header requirement so the text picks the right color back up regardless of
+// which sub-area it's actually in.
+.publications-section .sub-title {
+  color: get-light-color('muted-text-color') !important;
+}
+
+.publications-section .authors,
+.publications-section .author-name {
+  color: get-light-color('text-color') !important;
+}
+
+html[data-theme='dark'] {
+  .publications-section .sub-title {
+    color: get-dark-color('muted-text-color') !important;
+  }
+
+  .publications-section .authors,
+  .publications-section .author-name {
+    color: get-dark-color('text-color') !important;
+  }
 }
 
 // Bootstrap's own default `pre { overflow: auto }` reserves/shows a vertical scrollbar
