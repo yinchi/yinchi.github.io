@@ -53,7 +53,7 @@ Published challenge solutions:
 
 Clone of the classic Top Spin puzzle by Binary Arts. Auto-solver included based on a greedy
 algorithm plus endgame table lookup. Full blog post
-[here](https://yinchi.github.io/blog/2026/05/15/top-spin/).
+[here]({{< ref "posts/top-spin" >}}).
 
 ### [&mu;py](https://github.com/yinchi/upy/)
 
