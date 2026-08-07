@@ -157,7 +157,7 @@
                 {{ $menuURL = path.Join (site.BaseURL | relLangURL) (strings.Trim $menuURL "/") }}
               {{ end }}
               <li class="nav-item">
-                <a class="nav-link" href="{{ $menuURL }}">{{ .name }}</a>
+                <a class="nav-link" href="{{ $menuURL }}"{{ if .newTab }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
               </li>
             {{ end }}
         {{ end }}

@@ -42,3 +42,7 @@ socialLinks:
 - name: ORCID
   icon: "fab fa-orcid"
   url: "https://orcid.org/0000-0002-2405-8472"
+
+resourceLinks:
+- title: "Resume / CV"
+  url: "Yin-Chi_Chan_CV.pdf"

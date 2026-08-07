@@ -77,7 +77,7 @@
                       {{ $menuURL = path.Join (site.BaseURL | relLangURL) (strings.Trim $menuURL "/") }}
                     {{ end }}
                     <li class="nav-item">
-                      <a class="smooth-scroll" href="{{ $menuURL }}">{{ .name }}</a>
+                      <a class="smooth-scroll" href="{{ $menuURL }}"{{ if .newTab }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
                     </li>
                 {{ end }}
               {{ end }}

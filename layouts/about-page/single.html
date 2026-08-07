@@ -33,6 +33,14 @@
       </div>
     </div>
 
+    <h1 class="text-center my-0">
+      <a href="{{ partial "helpers/get-local-path.html" "/projects/" }}">Projects</a>
+      &nbsp;|&nbsp;
+      <a href="{{ partial "helpers/get-local-path.html" "/publications/" }}">Publications</a>
+      &nbsp;|&nbsp;
+      <a href="{{ partial "helpers/get-local-path.html" "/Yin-Chi_Chan_CV.pdf" }}" target="_blank" rel="noopener">CV</a>
+    </h1>
+
     {{ $experiences := hugo.Data.sections.experiences }}
     {{ if (index hugo.Data site.Language.Lang).sections.experiences }}
       {{ $experiences = (index hugo.Data site.Language.Lang).sections.experiences }}

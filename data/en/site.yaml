@@ -13,6 +13,11 @@ customMenus:
   url: /publications/
   hideFromNavbar: false
   showOnFooter: true
+- name: CV
+  url: /Yin-Chi_Chan_CV.pdf
+  hideFromNavbar: false
+  showOnFooter: true
+  newTab: true
 
 openGraph:
   title: Yin-Chi Chan

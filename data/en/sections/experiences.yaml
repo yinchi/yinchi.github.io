@@ -28,11 +28,11 @@ experiences:
 
 - company:
     name: City University of Hong Kong
-    url: "https://www.cityu.edu.hk/"
+    url: "https://www.ee.cityu.edu.hk/"
     location: Hong Kong
-    overview: Developed stochastic and simulation models for healthcare and telecommunications
-      systems, focusing on capacity planning and optimisation of telecommunications systems and
-      intensive care networks.
+    overview: Developed stochastic and simulation models and approximation methods for performance
+      evaluation of healthcare and telecommunications systems, focusing on capacity planning and
+      optimization of cellular systems and intensive care networks.
   positions:
   - designation: Research Associate
     start: 2020
