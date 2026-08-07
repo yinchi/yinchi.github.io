@@ -52,10 +52,10 @@
     <div class="container pt-5">
       <div class="row text-start">
         {{ if $navigationEnabled }}
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-6 col-sm-12">
           <h5>{{ i18n "navigation" }}</h5>
           {{ if $sections }}
-          <ul>
+          <ul class="footer-nav-columns">
             {{- range sort $sections "section.weight" }}
               {{ if and (.section.enable) (.section.showOnNavbar)}}
                 {{ $sectionID := replace (lower .section.name) " " "-"  }}
@@ -87,7 +87,7 @@
         </div>
         {{ end }}
         {{ if (and $contactMeEnabled $author) }}
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-6 col-sm-12">
           <h5>{{ i18n "contact_me" }}</h5>
           <ul>
             {{ range $key,$value:= $author.contactInfo }}
@@ -135,7 +135,7 @@
         <!-------------- Newsletter --------------->
         {{ if $newsletterEnabled }}
           {{ $provider := site.Params.footer.newsletter.provider }}
-          <div class="col-md-4 col-sm-12">
+          <div class="col-md-6 col-sm-12">
             <p>{{ i18n "newsletter_text" }}</p>
             {{ if and (eq $provider "mailchimp") site.Params.footer.newsletter.mailchimpURL }}  <!-- mailchimp -->
               <form
@@ -187,7 +187,7 @@
       <div class="row text-center">
         <div class="col-12">
           Built with <a href="https://gohugo.io/">Hugo</a> and
-          the <a href="https://github.com/hugo-toha/toha">Toha</a> theme
+          a modified <a href="https://github.com/hugo-toha/toha">Toha</a> theme
           &middot; {{ $copyrightNotice | markdownify }}
         </div>
       </div>

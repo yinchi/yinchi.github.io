@@ -26,4 +26,76 @@ html[data-theme='dark'] {
   h3, h4, h5, h6 {
     margin-top: 1.3rem;
   }
+
+  // Plain markdown images (e.g. in blog posts) render left-aligned by default;
+  // center them to match the rest of the site's centered-content feel.
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// layouts/posts/single.html drops the sidebar/TOC columns but keeps Toha's own
+// content-section/content/read-area wrapper classes as-is (all of the hero/title/author/
+// post-content CSS is nested several levels under .content-section, so keeping the
+// ancestor class names means that CSS still applies unchanged). The one thing that does
+// need overriding is .content-section's own width cap (flex/max-width: 60%), sized on the
+// assumption of two sibling columns that no longer exist -- without this, code blocks
+// (and everything else) are squeezed into 60% of the page width and wrap/scroll
+// unnecessarily. Hugo/Toha already stamp "type-posts" on <body> for this content section,
+// so no extra class is needed to scope this. Selector must include ".wrapper" to match
+// Toha's own "body.kind-page .wrapper .content-section" rule's specificity (3 classes) --
+// at equal specificity source order would decide it, but this rule has one fewer class
+// than that, so it was silently losing the cascade despite being the later rule.
+body.type-posts .wrapper .content-section {
+  flex: 100%;
+  max-width: 100%;
+}
+
+// .read-area was swapped from Bootstrap's .container (fixed max-width, sized for the old
+// 60%-wide column) to .container-fluid in layouts/posts/single.html. .page-content
+// (title/author line/post body) shouldn't stretch full-bleed though -- very long text
+// lines are hard to read -- so it gets its own centered reading-width cap here instead.
+// "top: -4.5rem" is also reset back to 0: that negative offset exists in Toha's own CSS
+// so page-content overlaps the bottom of the hero banner (for the avatar-straddling-the-
+// hero look); with the hero removed entirely, it just needs to sit normally.
+body.type-posts .page-content {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+}
+
+// Bootstrap's own default `pre { overflow: auto }` reserves/shows a vertical scrollbar
+// track whenever the element is even marginally shorter than its content's natural height
+// (e.g. from font/line-height subpixel rounding), even though code blocks never actually
+// need to scroll vertically -- Hugo's syntax highlighter doesn't cap block height. Limiting
+// scroll to the horizontal axis (still needed for genuinely long lines) removes the
+// spurious vertical scrollbar.
+pre {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+// Footer: with the newsletter column disabled (site.yaml has no newsletter provider
+// configured), only Navigation and Contact Me remain -- footer.html widens both from
+// col-md-4 to col-md-6 to fill the row instead of leaving a third of it empty. At that
+// wider width, Navigation's single-column list of 5 links (Blog/About/Projects/
+// Publications/CV) looked sparse, so it's split into two CSS columns.
+//
+// CSS multi-column always divides the *container's own* full width into N equal boxes,
+// regardless of how short the content is -- column-gap only controls the strip between
+// those boxes. Left at the parent col-md-6's full width, each box was far wider than a
+// short link like "CV", so the leftover space after the text read as a huge gap even
+// though column-gap itself was small. Capping the list's own width to content-size (not
+// the parent column's) is what actually makes the two columns sit close together.
+.footer-nav-columns {
+  columns: 2;
+  column-gap: 0.75rem;
+  max-width: 260px;
+
+  li {
+    margin-top: 2px;
+  }
 }

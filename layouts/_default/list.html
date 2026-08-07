@@ -1,0 +1,39 @@
+{{/* Override of Toha's _default/list.html:
+     1. Drops the "sidebar" block entirely (it only ever held the non-functional search box
+        and a redundant post-list tree -- the same dead weight already stripped from every
+        single-page layout this session). baseof.html's {{ block "sidebar" }} renders
+        nothing when the child template doesn't define it, so simply omitting that define
+        block here is sufficient. Applies to every _default-list-templated page site-wide
+        (the posts list, and any taxonomy/category term pages), not just /posts/.
+     2. #post-card-holder changed from .container-fluid to .container: with the sidebar's
+        60%-wide column gone, upstream's full-bleed .container-fluid stretched the post
+        cards edge-to-edge with no margin. Using .container instead gives it the same
+        centered, capped-width treatment the navbar itself uses for its own inner content
+        (see navbar.html's own ".container" wrapping the brand/nav-links inside the
+        full-bleed ".top-navbar"). */}}
+{{ define "navbar" }}
+    {{ partial "navigators/navbar.html" . }}
+{{ end }}
+
+{{ define "content" }}
+<section class="content-section" id="content-section">
+  <div class="content container-fluid" id="content">
+    <div class="container post-card-holder" id="post-card-holder">
+      {{ $posts := where .RegularPagesRecursive "Layout" "!=" "search" }}
+      {{ $posts = where $posts "Params.hidden" "!=" true }}
+      {{ $numShow := site.Params.features.pagination.maxPostsPerPage | default 12}}
+      {{ $paginator := .Paginate $posts $numShow }}
+      {{ range $paginator.Pages }}
+        {{ if .Layout }}
+          {{/* ignore the search.md file*/}}
+        {{ else }}
+          {{ partial "cards/post.html" . }}
+        {{ end }}
+      {{ end }}
+    </div>
+    <div class="paginator">
+      {{ partial "pagination.html" . }}
+    </div>
+  </div>
+</section>
+{{ end }}

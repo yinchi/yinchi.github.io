@@ -73,11 +73,11 @@
 
 <nav class="navbar navbar-expand-xl top-navbar shadow {{ if .IsHome}}transparent-navbar homepage{{end}}" id="top-navbar">
   <div class="container">
-    {{ if not .IsHome }}
-    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
-      <i data-feather="sidebar"></i>
-    </button>
-    {{ end }}
+    {{/*  Override: dropped the #sidebar-toggler button upstream rendered here on every
+          non-home page. It toggled a #sidebar-section element that no longer exists
+          anywhere -- every content page's sidebar (search box + post tree) has been
+          removed this session for being dead weight, so the toggle button became a
+          button for a sidebar that isn't there.  */}}
     <a class="navbar-brand" href="{{ site.BaseURL | relLangURL }}">
       {{ if $logo }}
         <img src="{{ $logo }}" id="logo" alt="Logo">
@@ -133,11 +133,6 @@
         {{ if $shouldAddSeparator }}
           <div id="top-navbar-divider"></div>
         {{ end }}
-        {{ if $blogEnabled }}
-          <li class="nav-item">
-            <a class="nav-link" id="blog-link" href="{{ path.Join (site.BaseURL | relLangURL) "posts" }}">{{ $blogTitle }}</a>
-          </li>
-        {{ end }}
         {{ if $notesEnabled }}
           <li class="nav-item">
             <a class="nav-link" id="note-link" href="{{ path.Join (site.BaseURL | relLangURL) "notes" }}">{{ $notesTitle }}</a>
@@ -160,6 +155,13 @@
                 <a class="nav-link" href="{{ $menuURL }}"{{ if .newTab }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
               </li>
             {{ end }}
+        {{ end }}
+        {{/*  Override: moved after customMenus (upstream placed it right after Home) so
+              Blog sorts last in the navbar, matching its position in the footer nav.  */}}
+        {{ if $blogEnabled }}
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="{{ path.Join (site.BaseURL | relLangURL) "posts" }}">{{ $blogTitle }}</a>
+          </li>
         {{ end }}
         {{ if .IsTranslated }}
           {{ partial "navigators/lang-selector.html" . }}

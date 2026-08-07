@@ -18,6 +18,10 @@ customMenus:
   hideFromNavbar: false
   showOnFooter: true
   newTab: true
+- name: Blog
+  url: /posts/
+  hideFromNavbar: true
+  showOnFooter: true
 
 openGraph:
   title: Yin-Chi Chan
