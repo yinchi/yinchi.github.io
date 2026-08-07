@@ -27,6 +27,29 @@ html[data-theme='dark'] {
   }
 }
 
+// Toha's footer.scss adds "margin-left: 5px" on ".footer a:hover" -- meant to nudge Toha's
+// own #hugo/#theme logo links, but applied to every footer link generically, so hovering
+// any footer link (nav items, contact info, credentials) visibly shifts the text sideways
+// instead of just underlining it. Cancelled site-wide within the footer.
+.footer a:hover {
+  margin-left: 0 !important;
+}
+
+// Toha's footer.scss sets ".footer a" to "muted-text-color" (a dim grey) rather than the
+// "accent-color" blue used for links everywhere else on the site (see components/links.scss).
+// Scoped to just the bottom "Built with Hugo / Toha" credentials line (".credentials-line",
+// added in footer.html) rather than every footer link -- the Navigation/Contact Me links
+// keep their original muted color.
+.footer .credentials-line a {
+  color: get-light-color('accent-color') !important;
+}
+
+html[data-theme='dark'] {
+  .footer .credentials-line a {
+    color: get-dark-color('accent-color') !important;
+  }
+}
+
 // Sticky-footer fix: our custom layouts (list/single/page/publications/about-page) each
 // wrap their main content in a single top-level ".container-fluid.anchor.pb-5" div,
 // directly followed by <footer>, with no min-height set anywhere in that chain. On short
