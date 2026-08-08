@@ -43,7 +43,9 @@
         <h1 class="text-center">{{ .Page.Title }}</h1>
 
         {{ if site.Params.features.tags.enable }}
-        {{ partial "misc/tags.html" .Params.tags }}
+        <div class="post-tags">
+          {{ partial "misc/tags.html" .Params.tags }}
+        </div>
         {{ end }}
         <div class="post-content">
           {{ .Page.Content }}
