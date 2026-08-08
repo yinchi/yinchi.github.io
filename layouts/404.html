@@ -1,0 +1,47 @@
+{{/* Override of Toha's 404.html. Upstream is still baseof.html-driven (navbar/content
+     blocks inside the old ".wrapper" flex structure originally sized around a sidebar
+     column) -- with no sidebar defined here, that flex math left the notFound content
+     stuck off-center to the left instead of spanning/centering across the page, the same
+     class of bug already fixed on every other page this site has its own layout for.
+     Rewritten as a standalone layout matching that same pattern (see page/single.html's
+     comment). The cat illustration's dark-mode near-invisibility (plain black line art on
+     transparent, no dark-mode variant asset) is handled separately in override.scss via a
+     CSS filter rather than a second image. */}}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale | default .Site.Language.Lang }}">
+  <head>
+    <title>{{ .Page.Title }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}" />
+    {{- partial "header.html" . -}}
+    {{- partial "opengraph.html" . -}}
+    {{- partial "twitter_cards.html" . -}}
+    {{- partial "analytics.html" . -}}
+    {{ with resources.Get "scripts/core/theme-scheme.js" | fingerprint }}
+    <script integrity="{{ .Data.Integrity }}">
+      {{ .Content | safeJS }}
+    </script>
+    {{ end }}
+  </head>
+  <body data-bs-spy="scroll" data-bs-target="#top-navbar" data-bs-offset="100">
+    {{- partial "navigators/navbar.html" . -}}
+
+    {{ $notFoundImage := "/images/404.png" }}
+    {{ $notFoundImage = resources.Get $notFoundImage }}
+    {{ if and $notFoundImage (ne $notFoundImage.MediaType.SubType "svg") }}
+      {{ $notFoundImage = $notFoundImage.Resize "1000x" }}
+    {{ end }}
+
+    <div class="container-fluid anchor pb-5">
+      <div class="container text-center">
+        <img id="notFoundImage" src="{{ $notFoundImage.RelPermalink }}" alt="Page Not Found" class="img-fluid" />
+        <h1>404</h1>
+        <h4>{{ i18n "err_404" }}</h4>
+      </div>
+    </div>
+
+    {{ $footerTemplate := site.Params.footer.template | default "footer.html" }}
+    {{- partial $footerTemplate . -}}
+    {{ partial "scripts.html" . }}
+    {{- partial "misc/support.html" . -}}
+  </body>
+</html>

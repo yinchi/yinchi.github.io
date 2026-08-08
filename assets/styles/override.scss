@@ -13,6 +13,23 @@ html[data-theme='dark'] {
   }
 }
 
+// Toha's 404 illustration (assets/images/404.png) uses black outlines -- use color
+// inversion hack in dark mode to make it visible against the dark background.
+html[data-theme='dark'] {
+  #notFoundImage {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+// Fix styling for the 404 cat image: centered, limited height.
+#notFoundImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 400px;
+  width: auto;
+}
+
 // Toha's hero .greeting-subtitle and .typing-carousel have no max-width of their own,
 // so we set one here to limit their width, and center them on the page.
 .home {
