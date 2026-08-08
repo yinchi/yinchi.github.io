@@ -74,7 +74,7 @@
                 {{ if .showOnFooter }}
                     {{ $menuURL := .url }}
                     {{ if not (or (hasPrefix $menuURL "http://") (hasPrefix $menuURL "https://")) }}
-                      {{ $menuURL = path.Join (site.BaseURL | relLangURL) (strings.Trim $menuURL "/") }}
+                      {{ $menuURL = partial "helpers/get-local-path.html" $menuURL }}
                     {{ end }}
                     <li class="nav-item">
                       <a class="smooth-scroll" href="{{ $menuURL }}"{{ if .newTab }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>

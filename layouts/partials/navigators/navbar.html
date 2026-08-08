@@ -135,21 +135,19 @@
         {{ end }}
         {{ if $notesEnabled }}
           <li class="nav-item">
-            <a class="nav-link" id="note-link" href="{{ path.Join (site.BaseURL | relLangURL) "notes" }}">{{ $notesTitle }}</a>
+            <a class="nav-link" id="note-link" href="{{ partial "helpers/get-local-path.html" "notes" }}">{{ $notesTitle }}</a>
           </li>
         {{ end }}
-        {{/*  Override: internal customMenu URLs must be joined onto the subpath-aware
-              baseURL (same pattern as the "posts"/"notes" links above) so they respect a
+        {{/*  Override: internal customMenu URLs must be resolved against the subpath-aware
+              baseURL (same helper as the "posts"/"notes" links above) so they respect a
               non-root baseURL; only genuinely external (http/https) URLs render raw.
-              A bare relLangURL on a leading-"/" string does NOT prepend the subpath -- it
-              treats the string as already rooted at the domain -- so that alone doesn't work.
               Upstream Toha always rendered customMenu URLs raw, which only happens to work
               when baseURL has no subpath.  */}}
         {{ range $customMenus }}
             {{ if (not .hideFromNavbar) }}
               {{ $menuURL := .url }}
               {{ if not (or (hasPrefix $menuURL "http://") (hasPrefix $menuURL "https://")) }}
-                {{ $menuURL = path.Join (site.BaseURL | relLangURL) (strings.Trim $menuURL "/") }}
+                {{ $menuURL = partial "helpers/get-local-path.html" $menuURL }}
               {{ end }}
               <li class="nav-item">
                 <a class="nav-link" href="{{ $menuURL }}"{{ if .newTab }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
@@ -160,7 +158,7 @@
               Blog sorts last in the navbar, matching its position in the footer nav.  */}}
         {{ if $blogEnabled }}
           <li class="nav-item">
-            <a class="nav-link" id="blog-link" href="{{ path.Join (site.BaseURL | relLangURL) "posts" }}">{{ $blogTitle }}</a>
+            <a class="nav-link" id="blog-link" href="{{ partial "helpers/get-local-path.html" "posts" }}">{{ $blogTitle }}</a>
           </li>
         {{ end }}
         {{ if .IsTranslated }}
