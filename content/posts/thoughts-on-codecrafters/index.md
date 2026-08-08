@@ -1,7 +1,7 @@
 ---
 title: "Thoughts on CodeCrafters"
 date: 2026-04-04
-categories: ["ramblings", "Python", "Rust"]
+tags: ["ramblings", "Python", "Rust"]
 ---
 
 [CodeCrafters](https://app.codecrafters.io/catalog) is a site where one can complete a number of

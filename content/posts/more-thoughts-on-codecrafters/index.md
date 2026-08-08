@@ -1,7 +1,7 @@
 ---
 title: "More Thoughts on CodeCrafters"
 date: 2026-05-10
-categories: ["ramblings", "Python", "Rust"]
+tags: ["ramblings", "Python", "Rust"]
 ---
 
 In my [previous post]({{< ref "thoughts-on-codecrafters" >}}), I shared some of my thoughts on

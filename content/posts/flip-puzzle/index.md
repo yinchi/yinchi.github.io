@@ -1,7 +1,7 @@
 ---
 title: "A flip puzzle"
 date: 2025-07-09
-categories: ["Python", "puzzles"]
+tags: ["Python", "puzzles"]
 ---
 
 *Top Spin* was a puzzle in which 20 beads were placed on an oval track with a turntable, such

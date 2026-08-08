@@ -1,7 +1,7 @@
 ---
 title: "Automating my publications page"
 date: 2025-04-19
-categories: ["Python"]
+tags: ["Python"]
 ---
 
 {{< alert type="warning" >}}

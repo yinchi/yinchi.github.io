@@ -1,0 +1,70 @@
+{{/* Override of Toha's tags/list.html (type-specific -- Hugo prefers this over
+     _default/list.html for the "tags" taxonomy, so overriding _default/list.html alone
+     never reached /tags/ or /tags/<tag>/). Upstream's version still uses the old
+     baseof.html-driven sidebar/content-section structure (including a dead search box in
+     the sidebar) that every other list-style page on this site has already moved away
+     from -- copied from _default/list.html's own rewrite rather than referenced from it,
+     matching this codebase's existing pattern of explicit per-type overrides over shared
+     partials for page-level layouts.
+
+     On the /tags/ root itself (taxonomy kind, not a single term), RegularPagesRecursive
+     collects posts from every term's subtree, so a post with multiple tags will appear
+     once per tag it has -- a minor, cosmetic-only quirk of Hugo's own taxonomy tree, not
+     something this template tries to deduplicate. Each individual /tags/<tag>/ page is
+     unaffected and lists its posts once each.
+
+     Individual tag pages (kind "term", e.g. /tags/puzzles/) are titled "Blog Posts: X" to
+     read as a filtered view of the Blog rather than a standalone section -- the /tags/
+     root itself (kind "taxonomy", listing all tag names) keeps Hugo's own default title
+     ("Tags") since it isn't itself a filtered post list. */}}
+{{ $pageTitle := .Page.Title }}
+{{ if eq .Kind "term" }}
+  {{ $pageTitle = printf "Blog Posts: %s" .Page.Title }}
+{{ end }}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale | default .Site.Language.Lang }}">
+  <head>
+    <title>{{ $pageTitle }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ $pageTitle }}{{ end }}" />
+    {{- partial "header.html" . -}}
+    {{- partial "opengraph.html" . -}}
+    {{- partial "twitter_cards.html" . -}}
+    {{- partial "analytics.html" . -}}
+    {{ with resources.Get "scripts/core/theme-scheme.js" | fingerprint }}
+    <script integrity="{{ .Data.Integrity }}">
+      {{ .Content | safeJS }}
+    </script>
+    {{ end }}
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target="#top-navbar" data-bs-offset="100">
+    {{- partial "navigators/navbar.html" . -}}
+
+    <div class="container-fluid anchor pb-5">
+      <h1 class="text-center">{{ $pageTitle }}</h1>
+      <div class="container">
+        <div class="row">
+          {{ $posts := where .RegularPagesRecursive "Layout" "!=" "search" }}
+          {{ $posts = where $posts "Params.hidden" "!=" true }}
+          {{ $numShow := site.Params.features.pagination.maxPostsPerPage | default 12}}
+          {{ $paginator := .Paginate $posts $numShow }}
+          {{ range $paginator.Pages }}
+            {{ if .Layout }}
+              {{/* ignore the search.md file*/}}
+            {{ else }}
+              {{ partial "cards/post.html" . }}
+            {{ end }}
+          {{ end }}
+        </div>
+        <div class="paginator">
+          {{ partial "pagination.html" . }}
+        </div>
+      </div>
+    </div>
+
+    {{ $footerTemplate := site.Params.footer.template | default "footer.html" }}
+    {{- partial $footerTemplate . -}}
+    {{ partial "scripts.html" . }}
+    {{- partial "misc/support.html" . -}}
+  </body>
+</html>

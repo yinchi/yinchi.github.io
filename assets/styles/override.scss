@@ -60,6 +60,11 @@ body {
   flex: 1 0 auto;
 }
 
+// Sets offset to main content on pages (except site root).  50px is the height of the fixed navbar.
+.anchor {
+  padding-top: calc(50px + 1.5rem) !important;
+}
+
 // Toha's own heading-margin rule for markdown body content (.post-content h1/h2/h3...)
 // is nested under the content-section/sidebar/toc column structure that
 // layouts/page/single.html and layouts/publications/single.html deliberately don't use

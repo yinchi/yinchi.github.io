@@ -1,7 +1,7 @@
 ---
 title: "Top Spin (revisited)"
 date: 2026-05-15
-categories: ["Python", "puzzles"]
+tags: ["Python", "puzzles"]
 ---
 
 ![top spin](top_spin.png)

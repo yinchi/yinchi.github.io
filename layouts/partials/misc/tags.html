@@ -1,0 +1,17 @@
+{{/* Override of Toha's misc/tags.html (used by blog post cards and single post pages).
+     Two issues with upstream's version:
+     1. It renders each tag as "btn btn-sm btn-outline-info rounded" -- a much larger,
+        outlined pill than the "btn badge btn-info" style cards/project.html and
+        cards/publication.html already use for their own tags.
+     2. Its "<ul><li>" wrapper picks up components/buttons.scss's ".tags li { font-size:
+        0.5em }" rule (meant for that original outlined-pill layout), which on top of the
+        badge-style switch alone made these tags tiny -- much smaller than Projects/
+        Publications tags, which use plain "<span>"s with no "<li>" and so never hit that
+        rule. Dropping the "<ul><li>" structure entirely for plain spans avoids it, rather
+        than trying to re-override the font-size back down the chain. */}}
+<div class="tags">
+  {{ range . }}
+  {{ $url := printf "tags/%s/" . }}
+  <a href="{{ $url | urlize | relLangURL }}"><span class="btn badge btn-info ms-1">{{ . }}</span></a>
+  {{ end }}
+</div>
