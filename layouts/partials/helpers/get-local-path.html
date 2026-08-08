@@ -1,7 +1,5 @@
 {{/* Resolves an internal site-relative path (e.g. "/projects/" or "images/foo.png")
      against the subpath-aware baseURL. A bare `relLangURL` on a leading-"/" string does
      NOT prepend the subpath -- it treats the string as already rooted at the domain --
-     so path.Join against the *relative* form of site.BaseURL is used instead.
-     Context: the raw path string to resolve. Only for internal paths; callers should
-     leave external (http/https) URLs untouched rather than pass them in here. */}}
+     so path.Join against the *relative* form of site.BaseURL is used instead. */}}
 {{- path.Join (site.BaseURL | relLangURL) (strings.Trim . "/") -}}

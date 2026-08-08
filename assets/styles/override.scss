@@ -1,9 +1,8 @@
 /* override this file for custom css */
 
-// Replace Toha's default hero background image with a coded gradient
-// (no stock photo, no watermark risk). !important needed: Toha's own
-// inline <style> block sets this same ID's background-image later in
-// the DOM, so it otherwise wins the cascade at equal specificity.
+// Replace Toha's default hero background image with a coded gradient.
+// !important needed: Toha's own inline <style> block sets this same ID's
+// background-image later in the DOM, so it otherwise wins the cascade at equal specificity.
 #homePageBackgroundImageDivStyled {
   background-image: linear-gradient(135deg, #1a2a6c 0%, #2a5298 50%, #1a2a6c 100%) !important;
 }
@@ -15,9 +14,7 @@ html[data-theme='dark'] {
 }
 
 // Toha's hero .greeting-subtitle and .typing-carousel have no max-width of their own,
-// so at wide viewports they stretch across the full .container (edge-to-edge at large
-// screen sizes) instead of reading as a focused headline. Narrowing and centering them
-// keeps the multi-line subtitle/typed-tagline text from feeling like a wall of text.
+// so we set one here to limit their width, and center them on the page.
 .home {
   .greeting-subtitle,
   .typing-carousel {
@@ -27,19 +24,13 @@ html[data-theme='dark'] {
   }
 }
 
-// Toha's footer.scss adds "margin-left: 5px" on ".footer a:hover" -- meant to nudge Toha's
-// own #hugo/#theme logo links, but applied to every footer link generically, so hovering
-// any footer link (nav items, contact info, credentials) visibly shifts the text sideways
-// instead of just underlining it. Cancelled site-wide within the footer.
+// Toha's footer.scss adds "margin-left: 5px" on ".footer a:hover" -- remove it.
 .footer a:hover {
   margin-left: 0 !important;
 }
 
-// Toha's footer.scss sets ".footer a" to "muted-text-color" (a dim grey) rather than the
-// "accent-color" blue used for links everywhere else on the site (see components/links.scss).
 // Scoped to just the bottom "Built with Hugo / Toha" credentials line (".credentials-line",
-// added in footer.html) rather than every footer link -- the Navigation/Contact Me links
-// keep their original muted color.
+// added in footer.html).
 .footer .credentials-line a {
   color: get-light-color('accent-color') !important;
 }
@@ -50,26 +41,15 @@ html[data-theme='dark'] {
   }
 }
 
-// Toha's "footer-color" token (variables.scss) is the same near-black navy (#0f172a) in
-// both light and dark themes -- not theme-aware -- so in light mode the footer reads as
-// jarringly dark against the light page background above it. Lightening it in light mode
-// specifically to dark mode's own "bg-primary" (#1f2937, lighter than #0f172a) keeps the
-// same dark-surface footer aesthetic without such a stark jump from the page above it.
-// Scoped to light mode only -- dark mode keeps Toha's original #0f172a footer untouched.
+// Lighten the footer color in light mode -- dark mode keeps Toha's original #0f172a footer
+// untouched.
 html[data-theme='light'] {
   .footer {
     background-color: get-dark-color('bg-primary') !important;
   }
 }
 
-// Sticky-footer fix: our custom layouts (list/single/page/publications/about-page) each
-// wrap their main content in a single top-level ".container-fluid.anchor.pb-5" div,
-// directly followed by <footer>, with no min-height set anywhere in that chain. On short
-// pages (e.g. a Blog list with few posts) the footer ends up sitting mid-viewport instead
-// of pinned to the bottom. Standard flex sticky-footer pattern: body becomes a column flex
-// container spanning the full viewport height, the content wrapper grows to fill any
-// leftover space, and the footer (a plain sibling <footer>, not flex-managed) is pushed
-// to the bottom as a result.
+// Sticky-footer fix: set the body to a column flex container spanning the full viewport height.
 body {
   display: flex;
   flex-direction: column;
@@ -125,10 +105,7 @@ body {
 // Toha's post-summary truncation and card-footer bottom-pinning were both scoped under
 // ".post-card .card ..." (see cards.scss) -- cards/post.html no longer uses that wrapper
 // class (replaced with plain Bootstrap column classes), so re-declaring both generically
-// restores the same behavior: without the line-clamp, cards showed each post's full
-// (untruncated) summary text at wildly different lengths; without margin-top:auto, the
-// footer (date/Read button) sat immediately after that text instead of pinned to the
-// bottom of the (row-stretched, h-100) card.
+// restores the same behavior.
 .post-summary {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -149,27 +126,8 @@ body {
   }
 }
 
-// Site-wide card background/border unification. Each card-bearing section had its own
-// bespoke treatment: Projects/Skills give only the header strip (.card-header/.card-head)
-// a distinct background, leaving the body the same near-invisible shade as the page
-// ("bg-card", nearly identical to "bg-primary" in dark mode -- see below); Publications/
-// Accomplishments use a colored top border instead of a background difference; plain
-// blog-post cards had neither. Rather than a full card redesign, this keeps each
-// section's own internal layout (tags/footer content) untouched and just makes the
-// background and border consistent across all of them.
+// Site-wide card background/border unification.
 //
-// Header (.card-header/.card-head) vs. body (.card/.card-footer) use two different
-// shades -- rather than one flat color throughout. Two of Toha's named tokens were
-// tried first for the header and rejected: "bg-primary" is also the page's own body
-// background (Toha sets body{background: bg-primary}), so a header in that color was
-// indistinguishable from the page behind the card; "bg-card" turned out to be nearly
-// identical to "bg-primary" in light mode specifically (#fff vs #f8fafc) -- technically
-// a different value, but not visually distinct enough to read as a separate region.
-// Using a light tint of "accent-color" instead guarantees real contrast against both
-// the page and the body in both themes, and ties the header visually to the card's own
-// border (same accent-color, different opacity) rather than introducing an unrelated
-// hue. A uniform accent-color border replaces each section's own border treatment
-// (including Publications/Accomplishments' colored top border specifically).
 // !important is needed throughout: every rule here is overriding a same-or-higher-
 // specificity section-specific rule, several of which are themselves !important.
 .card,
@@ -182,18 +140,17 @@ body {
   background-color: rgba(get-light-color('accent-color'), 0.08) !important;
 }
 
+// Special rule using same color as above, required due to CSS specificity rules
+.skills-section .card .card-head {
+  background-color: rgba(get-light-color('accent-color'), 0.08) !important;
+}
+
 .card {
   border: 1px solid rgba(get-light-color('accent-color'), 0.2) !important;
   border-top: 1px solid rgba(get-light-color('accent-color'), 0.2) !important;
 }
 
-// Header padding was also inconsistent: Projects/Skills explicitly set
-// "padding: 0.7rem; padding-bottom: 0" (relying on the body's own top padding for
-// breathing room below the header text), while Publications/Accomplishments/Blog never
-// customized it and fall back to Bootstrap's default (0.5rem top+bottom, 1rem sides) --
-// a different-looking gap between the header text and the header/body divider line
-// depending on which section you're looking at. Standardizing all of them to the same
-// explicit padding.
+// Header padding was also inconsistent, fixed here (except Skills cards, see below).
 .card-header,
 .card-head {
   padding: 0.5rem 1rem 0.35rem !important;
@@ -206,41 +163,17 @@ body {
   padding: 0.4rem 0.7rem 0.25rem !important;
 }
 
-// Unifying header padding alone wasn't enough: .card-body's own top padding varies just
-// as much by section (Publications/Accomplishments: 0; Blog: Bootstrap's un-overridden
-// default of 1rem; Skills: 0.2rem; Projects: 0.7rem), so the total header-to-content gap
-// still differed per section even with the header side now consistent. Matched to the
-// header's own (reduced) bottom padding for symmetry.
+// Unify card body padding across all sections, except Skills (see below).
 .card-body {
   padding-top: 0.35rem !important;
 }
 
-.skills-section .card .card-body {
-  padding-top: 0.25rem !important;
-}
-
-// Same inconsistency at the bottom of the body: Projects/Skills/Accomplishments/Blog all
-// wrap their summary text in a plain <p>, which picks up Bootstrap's own reboot default
-// (p { margin-top: 0; margin-bottom: 1rem }) -- an extra 1rem gap before the footer that
-// Publications never had, since its body content is plain <div>s (.sub-title/.authors),
-// not a <p>, so no default margin applies there. Zeroing it so the gap comes only from
-// each card's own explicit padding, consistently, regardless of whether that particular
-// section happens to use a <p> tag or not.
 .card-body p {
   margin-bottom: 0 !important;
 }
 
-// The blanket ".card .card-head" rule above loses to skills.scss's own rule
-// (.skills-section .card .card-head, 3 classes -- 4 with the html[data-theme=dark]
-// attribute selector in dark mode) despite both being !important -- !important only
-// changes which tier of the cascade competes first, rules within that tier are still
-// ranked by specificity. Matching the section-specific selector directly, per section as
-// needed, rather than trying to out-specify it generically. Applied in both themes for
-// the same reason even though this one happens to look acceptable in light mode without
-// it -- keeping the override logic consistent regardless of whether a given case
-// currently looks fine, rather than only patching visibly-broken ones.
-.skills-section .card .card-head {
-  background-color: rgba(get-light-color('accent-color'), 0.08) !important;
+.skills-section .card .card-body {
+  padding-top: 0.25rem !important;
 }
 
 html[data-theme='dark'] {
@@ -254,30 +187,24 @@ html[data-theme='dark'] {
     background-color: rgba(get-dark-color('accent-color'), 0.12) !important;
   }
 
+  // Again, special rule using same color as above, required due to CSS specificity rules.
+  .skills-section .card .card-head {
+    background-color: rgba(get-dark-color('accent-color'), 0.12) !important;
+  }
+
   .card {
     border: 1px solid rgba(get-dark-color('accent-color'), 0.2) !important;
     border-top: 1px solid rgba(get-dark-color('accent-color'), 0.2) !important;
   }
 
-  .skills-section .card .card-head {
-    background-color: rgba(get-dark-color('accent-color'), 0.12) !important;
-  }
-
-  // Special case, dark mode only (light mode already looks right without this): the
-  // homepage's "Selected projects" section sits on "bg-secondary" (it's the 2nd of the
-  // homepage's alternating-background sections -- see sections/home.html), the same
-  // color the unified card rule above already gives its cards, so body vs. section
-  // barely reads as distinct. Our standalone pages (About/Projects/Publications/Blog)
-  // don't have that alternating-section background at all -- they just show the plain
-  // page body color, "bg-primary". Matching these cards to that instead makes them
-  // blend into a page background the way they would on those pages, rather than
-  // visually doubling up with this section's own alternating background.
+  // Special case, dark mode only (light mode already looks right without this): alternate
+  // color for the Projects section's cards, since the background color is different.
   .projects-section .card {
     background-color: get-dark-color('bg-primary') !important;
   }
 }
 
-// Toha's post-card-footer muted-text color (date / reading time) was scoped under
+// CSS for the footer for blog post cards was scoped under
 // ".post-card .card .card-footer span" -- lost along with ".post-card" itself when
 // cards/post.html's wrapper was replaced with plain Bootstrap columns. Restoring it
 // generically since nothing else currently sets .card-footer span's color.
@@ -295,8 +222,7 @@ html[data-theme='dark'] {
 // ".publications-section .card .card-header" -- broken when cards/publication.html was
 // restructured to move that content into .card-body instead (so header/body could get
 // the same two-tone background split every other card type has). Re-declaring without
-// the .card-header requirement so the text picks the right color back up regardless of
-// which sub-area it's actually in.
+// the .card-header requirement.
 .publications-section .sub-title {
   color: get-light-color('muted-text-color') !important;
 }
@@ -317,29 +243,14 @@ html[data-theme='dark'] {
   }
 }
 
-// Bootstrap's own default `pre { overflow: auto }` reserves/shows a vertical scrollbar
-// track whenever the element is even marginally shorter than its content's natural height
-// (e.g. from font/line-height subpixel rounding), even though code blocks never actually
-// need to scroll vertically -- Hugo's syntax highlighter doesn't cap block height. Limiting
-// scroll to the horizontal axis (still needed for genuinely long lines) removes the
-// spurious vertical scrollbar.
+// Fix spurious vertical scrollbars when rendering code blocks.
 pre {
   overflow-x: auto;
   overflow-y: hidden;
 }
 
-// Footer: with the newsletter column disabled (site.yaml has no newsletter provider
-// configured), only Navigation and Contact Me remain -- footer.html widens both from
-// col-md-4 to col-md-6 to fill the row instead of leaving a third of it empty. At that
-// wider width, Navigation's single-column list of 5 links (Blog/About/Projects/
-// Publications/CV) looked sparse, so it's split into two CSS columns.
-//
-// CSS multi-column always divides the *container's own* full width into N equal boxes,
-// regardless of how short the content is -- column-gap only controls the strip between
-// those boxes. Left at the parent col-md-6's full width, each box was far wider than a
-// short link like "CV", so the leftover space after the text read as a huge gap even
-// though column-gap itself was small. Capping the list's own width to content-size (not
-// the parent column's) is what actually makes the two columns sit close together.
+// Footer: break the navigation links into two columns to balance height against the social icons
+//on the right, and reduce the gap between them.
 .footer-nav-columns {
   columns: 2;
   column-gap: 0.75rem;
