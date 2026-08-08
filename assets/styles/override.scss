@@ -82,6 +82,14 @@ body {
   padding-top: calc(50px + 1.5rem) !important;
 }
 
+// Breathing room below the tags row on single blog post pages (layouts/posts/single.html
+// wraps misc/tags.html's ".tags" in this class). Post cards use the same ".tags" partial
+// but already get enough spacing from the card-footer below, so this is scoped to the
+// single-page wrapper rather than ".tags" itself.
+.post-tags {
+  margin-bottom: 1rem;
+}
+
 // Toha's own heading-margin rule for markdown body content (.post-content h1/h2/h3...)
 // is nested under the content-section/sidebar/toc column structure that
 // layouts/page/single.html and layouts/publications/single.html deliberately don't use

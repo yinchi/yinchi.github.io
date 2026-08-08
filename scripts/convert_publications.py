@@ -30,6 +30,12 @@ PREPRINTS_DIR = REPO_ROOT / "static" / "preprints"
 # Entry types not shown on the site (e.g. patents aren't public-facing here).
 EXCLUDED_TYPES = {"patent"}
 
+# BibTeX entry type -> tag shown on the site's publication cards.
+TYPE_TAGS = {
+    "article": "journal",
+    "inproceedings": "conference",
+}
+
 REQUIRED_FIELDS = ("title", "year")
 
 _MONTH_ABBR = {m.lower(): n for n, m in enumerate(calendar.month_abbr) if n}
@@ -108,6 +114,17 @@ def slides_url(citekey: str, pubstate: str) -> str | None:
     return None
 
 
+def custom_tags(fields: dict) -> list[str]:
+    """Per-paper tags from BibTeX's standard `keywords` field, e.g.
+    `keywords = {hospital, digital-twin}` -> ["digital-twin", "hospital"].
+    Deduplicated and sorted so entry order/repeats in the .bib field don't matter.
+    """
+    raw = fields.get("keywords")
+    if not raw:
+        return []
+    return sorted({strip_braces(k).strip() for k in raw.split(",") if k.strip()})
+
+
 def convert_entry(citekey: str, entry) -> dict | None:
     fields = entry.fields
     missing = [f for f in REQUIRED_FIELDS if f not in fields]
@@ -119,6 +136,14 @@ def convert_entry(citekey: str, entry) -> dict | None:
     doi = fields.get("doi")
     doi_url = f"https://doi.org/{doi}" if doi else fields.get("url")
 
+    tags = []
+    type_tag = TYPE_TAGS.get(entry.type)
+    if type_tag:
+        tags.append(type_tag)
+    tags.extend(custom_tags(fields))
+    if pubstate != "published":
+        tags.append(pubstate)
+
     pub = {
         "title": strip_braces(fields["title"]),
         "publishedIn": {
@@ -129,7 +154,7 @@ def convert_entry(citekey: str, entry) -> dict | None:
             {"name": format_author(p)} for p in entry.persons.get("author", [])
         ],
         "paper": {},
-        "tags": [pubstate] if pubstate != "published" else [],
+        "tags": tags,
     }
     if doi_url:
         pub["publishedIn"]["url"] = doi_url

@@ -21,7 +21,13 @@ publications:
   - name: A. K. Parlikad
   paper:
     url: /papers/MorettiLowCost2025.pdf
-  tags: []
+  tags:
+  - conference
+  - Building Information Modelling (BIM)
+  - digital twin
+  - healthcare
+  - histopathology
+  - simulation
 - title: Data integration for space-aware Digital Twins of hospital operations
   publishedIn:
     name: Automation in Construction
@@ -36,7 +42,13 @@ publications:
   - name: A. K. Parlikad
   paper:
     url: /papers/MorettiData2025.pdf
-  tags: []
+  tags:
+  - journal
+  - Building Information Modelling (BIM)
+  - digital twin
+  - healthcare
+  - histopathology
+  - simulation
 - title: Design, Performance Evaluation and Optimization for Intensive Care Networks Based on Non-Hierarchical
     Overflow Loss Systems
   publishedIn:
@@ -53,7 +65,13 @@ publications:
   - name: G. Joynt
   paper:
     url: /papers/WuDesign2025.pdf
-  tags: []
+  tags:
+  - journal
+  - approximation methods
+  - healthcare
+  - intensive care
+  - optimization
+  - queuing theory
 - title: A Process Simulation Model for a Histopathology Laboratory
   publishedIn:
     name: 2024 Winter Simulation Conference (WSC)
@@ -72,7 +90,11 @@ publications:
   paper:
     url: /papers/ChanProcess2024.pdf
     slidesUrl: /papers/ChanProcess2024_slides.pdf
-  tags: []
+  tags:
+  - conference
+  - healthcare
+  - histopathology
+  - simulation
 - title: Dynamics of a susceptible-infected-recovered model on complex networks with interregional migration
   publishedIn:
     name: Physical Review E
@@ -86,7 +108,11 @@ publications:
   - name: S. Liu
   paper:
     url: /papers/NiuDynamics2024.pdf
-  tags: []
+  tags:
+  - journal
+  - complex networks
+  - epidemiology
+  - nonlinear dynamics
 - title: Integrating teletraffic theory with neural networks for quality-of-service evaluation in mobile
     networks
   publishedIn:
@@ -100,7 +126,12 @@ publications:
   - name: C. S. Leung
   paper:
     url: /papers/ChanIntegrating2024.pdf
-  tags: []
+  tags:
+  - journal
+  - neural networks
+  - queuing theory
+  - telecommunications
+  - teletraffic theory
 - title: A Simulation Model and Dashboard for Predicting Covid-19 Bed Requirements
   publishedIn:
     name: 2023 Winter Simulation Conference (WSC)
@@ -117,7 +148,11 @@ publications:
   paper:
     url: /papers/ChanSimulation2023.pdf
     slidesUrl: /papers/ChanSimulation2023_slides.pdf
-  tags: []
+  tags:
+  - conference
+  - COVID-19
+  - healthcare
+  - simulation
 - title: 'Low-cost digitalisation opportunities in healthcare: a histopathology department case study'
   publishedIn:
     name: Low-Cost Digital Solutions for Industrial Automation (LoDiSA 2023)
@@ -136,7 +171,10 @@ publications:
   - name: A. K. Parlikad
   paper:
     url: /papers/MorettiLow2023.pdf
-  tags: []
+  tags:
+  - conference
+  - healthcare
+  - histopathology
 - title: Healthcare process and variable mapping for identifying digitalisation opportunities and building
     a hospital digital twin
   publishedIn:
@@ -157,7 +195,12 @@ publications:
   - name: A. K. Parlikad
   paper:
     url: /papers/MukherjeeHealthcare2023.pdf
-  tags: []
+  tags:
+  - conference
+  - digital twin
+  - healthcare
+  - histopathology
+  - process mapping
 - title: 'A Century-Long Challenge in Teletraffic Theory: Blocking Probability Evaluation for Overflow
     Loss Systems With Mutual Overflow'
   publishedIn:
@@ -169,7 +212,12 @@ publications:
   - name: '**Y.-C. Chan**'
   paper:
     url: /papers/WongCentury2023.pdf
-  tags: []
+  tags:
+  - journal
+  - approximation methods
+  - queuing theory
+  - telecommunications
+  - teletraffic theory
 - title: Modeling the Impact of Vaccination on COVID-19 and Its Delta and Omicron Variants
   publishedIn:
     name: Viruses
@@ -183,7 +231,12 @@ publications:
   - name: M. A. Wyk
   paper:
     url: /papers/WangModeling2022.pdf
-  tags: []
+  tags:
+  - journal
+  - COVID-19
+  - epidemiology
+  - nonlinear dynamics
+  - vaccination
 - title: A stochastic SEIHR model for COVID-19 data fluctuations
   publishedIn:
     name: Nonlinear Dynamics
@@ -197,7 +250,12 @@ publications:
   - name: G. Chen
   paper:
     url: /papers/NiuStochastic2021.pdf
-  tags: []
+  tags:
+  - journal
+  - COVID-19
+  - epidemiology
+  - nonlinear dynamics
+  - stochastic differential equations
 - title: Evaluating Non-Hierarchical Overflow Loss Systems Using Teletraffic Theory and Neural Networks
   publishedIn:
     name: IEEE Communications Letters
@@ -209,7 +267,12 @@ publications:
   - name: C. S. Leung
   paper:
     url: /papers/ChanEvaluating2021.pdf
-  tags: []
+  tags:
+  - journal
+  - neural networks
+  - queuing theory
+  - telecommunications
+  - teletraffic theory
 - title: Power Consumption and GoS Tradeoff in Cellular Mobile Networks With Base Station Sleeping and
     Related Performance Studies
   publishedIn:
@@ -223,7 +286,12 @@ publications:
   - name: M. Zukerman
   paper:
     url: /papers/WuPower2020.pdf
-  tags: []
+  tags:
+  - journal
+  - approximation methods
+  - queuing theory
+  - telecommunications
+  - teletraffic theory
 - title: Modeling the COVID-19 Pandemic Using an SEIHR Model With Human Migration
   publishedIn:
     name: IEEE Access
@@ -237,7 +305,10 @@ publications:
   - name: G. Chen
   paper:
     url: /papers/NiuModeling2020.pdf
-  tags: []
+  tags:
+  - journal
+  - COVID-19
+  - epidemiology
 - title: Performance Evaluation of 5G mmWave Networks with Physical-Layer and Capacity-Limited Blocking
   publishedIn:
     name: 2020 IEEE 21st International Conference on High Performance Switching and Routing (HPSR)
@@ -251,7 +322,12 @@ publications:
   - name: T. Kim
   paper:
     url: /papers/WuPerformance2020.pdf
-  tags: []
+  tags:
+  - conference
+  - approximation methods
+  - queuing theory
+  - telecommunications
+  - teletraffic theory
 - title: Overflow models for the admission of intensive care patients
   publishedIn:
     name: Health Care Management Science
@@ -265,7 +341,12 @@ publications:
   - name: M. Zukerman
   paper:
     url: /papers/ChanOverflow2018.pdf
-  tags: []
+  tags:
+  - journal
+  - approximation methods
+  - healthcare
+  - intensive care
+  - queuing theory
 - title: Blocking Probability Evaluation for Non-Hierarchical Overflow Loss Systems
   publishedIn:
     name: IEEE Transactions on Communications
@@ -276,7 +357,12 @@ publications:
   - name: E. W. M. Wong
   paper:
     url: /papers/ChanBlocking2018.pdf
-  tags: []
+  tags:
+  - journal
+  - approximation methods
+  - queuing theory
+  - telecommunications
+  - teletraffic theory
 - title: Energy Efficiency-QoS Tradeoff in Cellular Networks with Base-Station Sleeping
   publishedIn:
     name: GLOBECOM 2017 - 2017 IEEE Global Communications Conference
@@ -289,7 +375,12 @@ publications:
   - name: M. Zukerman
   paper:
     url: /papers/WuEnergy2017.pdf
-  tags: []
+  tags:
+  - conference
+  - approximation methods
+  - queuing theory
+  - telecommunications
+  - teletraffic theory
 - title: Surrogate models for performance evaluation of multi-skill multi-layer overflow loss systems
   publishedIn:
     name: Performance Evaluation
@@ -302,7 +393,12 @@ publications:
   - name: M. Zukerman
   paper:
     url: /papers/ChanSurrogate2016.pdf
-  tags: []
+  tags:
+  - journal
+  - approximation methods
+  - queuing theory
+  - telecommunications
+  - teletraffic theory
 - title: Performance analysis for overflow loss systems of processor-sharing queues
   publishedIn:
     name: 2015 IEEE Conference on Computer Communications (INFOCOM)
@@ -316,4 +412,8 @@ publications:
   paper:
     url: /papers/ChanPerformance2015.pdf
     slidesUrl: /papers/ChanPerformance2015_slides.pdf
-  tags: []
+  tags:
+  - conference
+  - approximation methods
+  - queuing theory
+  - teletraffic theory
