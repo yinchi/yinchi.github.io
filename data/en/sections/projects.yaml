@@ -11,7 +11,7 @@ projects:
   summary: >
     Clone of the classic Top Spin puzzle by Binary Arts. Includes an auto-solver based on a
     greedy algorithm plus an endgame table lookup.
-    [Read the write-up](https://yinchi.github.io/personal-site/posts/top-spin/).
+    [Read the write-up](https://yinchi.dev/posts/top-spin/).
   tags: ["hobby", "puzzle"]
 
 - name: HarvardX Movielens Project
