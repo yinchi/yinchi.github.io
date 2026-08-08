@@ -236,14 +236,15 @@ html[data-theme='dark'] {
 
 // CSS for the footer for blog post cards was scoped under
 // ".post-card .card .card-footer span" -- lost along with ".post-card" itself when
-// cards/post.html's wrapper was replaced with plain Bootstrap columns. Restoring it
-// generically since nothing else currently sets .card-footer span's color.
-.card .card-footer span {
+// cards/post.html's wrapper was replaced with plain Bootstrap columns. Restoring it,
+// but scoped using ".float-start" to avoid affecting badges in the Publications section
+// (also ".card-footer span" but another color).
+.card .card-footer span.float-start {
   color: get-light-color('muted-text-color') !important;
 }
 
 html[data-theme='dark'] {
-  .card .card-footer span {
+  .card .card-footer span.float-start {
     color: get-dark-color('muted-text-color') !important;
   }
 }
