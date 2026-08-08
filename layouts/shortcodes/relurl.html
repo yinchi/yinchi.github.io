@@ -1,0 +1,10 @@
+{{/* Resolves an internal path against the subpath-aware baseURL via
+     helpers/get-local-path.html, for use as a markdown link destination.
+     Needed for links to files under static/, which have no Page object for {{< ref >}} to
+     resolve against. External (http/https) paths are left untouched, matching
+     shortcodes/img.html's same check on its own "src" parameter. */}}
+{{- $path := .Get 0 -}}
+{{- if not (or (strings.HasPrefix $path "http://") (strings.HasPrefix $path "https://")) -}}
+  {{- $path = partial "helpers/get-local-path.html" $path -}}
+{{- end -}}
+{{- $path -}}
