@@ -78,7 +78,7 @@
           anywhere -- every content page's sidebar (search box + post tree) has been
           removed this session for being dead weight, so the toggle button became a
           button for a sidebar that isn't there.  */}}
-    <a class="navbar-brand" href="{{ site.BaseURL | relLangURL }}">
+    <a class="navbar-brand" href="{{ partial "helpers/get-local-path.html" "" }}">
       {{ if $logo }}
         <img src="{{ $logo }}" id="logo" alt="Logo">
       {{ end }}
@@ -98,7 +98,7 @@
     <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
       <ul class="nav navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ if .IsHome }}#home{{else}}{{ site.BaseURL | relLangURL }}#home{{end}}">{{ i18n "home" }}</a>
+          <a class="nav-link" href="{{ if .IsHome }}#home{{else}}{{ partial "helpers/get-local-path.html" "" }}#home{{end}}">{{ i18n "home" }}</a>
         </li>
         {{ if $sections }}
           {{ $sectionCount := 1 }}

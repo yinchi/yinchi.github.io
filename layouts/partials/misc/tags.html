@@ -12,6 +12,6 @@
 <div class="tags">
   {{ range . }}
   {{ $url := printf "tags/%s/" . }}
-  <a href="{{ $url | urlize | relLangURL }}"><span class="btn badge btn-info ms-1">{{ . }}</span></a>
+  <a href="{{ partial "helpers/get-local-path.html" ($url | urlize) }}"><span class="btn badge btn-info ms-1">{{ . }}</span></a>
   {{ end }}
 </div>

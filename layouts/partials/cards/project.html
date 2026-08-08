@@ -16,7 +16,7 @@
       {{/* Process internal links (not http[s]://) */}}
       {{- $projectURL := .url -}}
       {{- if and $projectURL (not (or (hasPrefix $projectURL "http://") (hasPrefix $projectURL "https://"))) -}}
-        {{- $projectURL = partial "helpers/get-page-url.html" $projectURL -}}
+        {{- $projectURL = partial "helpers/get-local-path.html" $projectURL -}}
       {{- end -}}
       <a href="{{ if .repo }}{{ .repo }}{{ else if $projectURL }}{{ $projectURL }}{{ else }}javascript:void(0){{ end }}" {{ if or
         .repo $projectURL }}target="{{ $targetAttr }}" rel="noopener" {{ end }}>
@@ -76,7 +76,7 @@
           <div class="project-tags-holder">
             {{ range $index,$tag:= .tags }}
             {{ if $.linkTags }}
-            <a href="{{ printf "/tags/%s/" (urlize $tag) | relLangURL }}">
+            <a href="{{ partial "helpers/get-local-path.html" (printf "/tags/%s/" (urlize $tag)) }}">
               <span class="btn badge btn-info">
                 {{ $tag }}
               </span>
