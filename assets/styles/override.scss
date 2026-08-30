@@ -30,9 +30,26 @@ html[data-theme='dark'] {
   width: auto;
 }
 
+// Center the home page's splash content vertically and horizontally.
 .home {
   height: 100vh;
   height: 100dvh;
+  position: relative;
+
+  .content {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// Reserve minimum height for the typing carousel to prevent layout shift.
+.home .content .typing-carousel {
+  min-height: 6em;
 }
 
 // Toha's hero .greeting-subtitle and .typing-carousel have no max-width of their own,
