@@ -46,3 +46,6 @@ socialLinks:
 resourceLinks:
 - title: "Resume / CV"
   url: "Yin-Chi_Chan_CV.pdf"
+- title: "More about me"
+  url: "/about"
+  target: "_self"

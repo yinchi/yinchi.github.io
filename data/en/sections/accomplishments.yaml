@@ -6,6 +6,16 @@ section:
   showOnNavbar: false
 
 accomplishments:
+- name: Deep Learning Specialization
+  timeline: "Aug 2026"
+  organization:
+    name: DeepLearning.AI
+    url: "https://www.deeplearning.ai/"
+  courseOverview: "Professional Certificate covering deep neural networks, convolutional
+    and recurrent networks, natural language processing, and sequence models including
+    transformers."
+  certificateURL: "https://www.deeplearning.ai/certificates/6dbb14bd-6e87-4310-b3d9-c4a9df2f070f"
+
 - name: Machine Learning Specialization
   timeline: "Jul 2026"
   organization:

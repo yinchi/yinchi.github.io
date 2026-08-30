@@ -25,86 +25,105 @@ skills:
   icon: "fab fa-python"
   summary: "Primary language for simulation modelling, data analysis, and backend tooling."
   categories: ["languages"]
+  url: https://www.python.org
 
 - name: Rust
   icon: "fab fa-rust"
   summary: "Systems-level programming and CLI tooling."
   categories: ["languages"]
+  url: https://www.rust-lang.org
 
 - name: TypeScript
   icon: "fab fa-typescript"
   summary: "Typed frontend and full-stack web development."
   categories: ["languages"]
+  url: https://www.typescriptlang.org
 
 - name: C / C++
   summary: "Performance-critical and numerical code, including the Armadillo C++ matrix algebra library."
   categories: ["languages"]
+  url: https://isocpp.org
 
 - name: R
   icon: "fab fa-r-project"
   summary: "Statistical computing and the tidyverse data analysis ecosystem."
   categories: ["languages"]
+  url: https://www.r-project.org
 
 - name: Dash
   summary: "Interactive Python web dashboards for non-technical end-users."
   categories: ["frameworks"]
+  url: https://dash.plotly.com
 
 - name: FastAPI
   summary: "Lightweight Python backend APIs."
   categories: ["frameworks"]
+  url: https://fastapi.tiangolo.com
 
 - name: React
   icon: "fab fa-react"
   summary: "Component-based frontend interfaces."
   categories: ["frameworks"]
+  url: https://reactjs.org
 
 - name: SimPy
   summary: "Python discrete-event simulation library."
   categories: ["simulation"]
+  url: https://simpy.readthedocs.io
 
 - name: salabim
   summary: "Python discrete-event simulation library."
   categories: ["simulation"]
+  url: https://salabim.org
 
 - name: Arena
   summary: "Commercial DES software used in capacity-planning simulation studies."
   categories: ["simulation"]
+  url: https://www.rockwellautomation.com/en-ca/products/software/arena-simulation.html
 
 - name: MATLAB / Simulink / Simscape
   summary: "Model-based design and physical system simulation."
   categories: ["simulation"]
+  url: https://www.mathworks.com/products/simscape.html
 
 - name: Docker
   icon: "fab fa-docker"
   summary: "Containerised development and deployment environments."
   categories: ["tools"]
+  url: https://www.docker.com/products/cli/
 
 - name: Kubernetes
   icon: "fab fa-kubernetes"
   summary: "Container orchestration for scaling deployed workloads."
   categories: ["tools"]
+  url: https://kubernetes.io
 
 - name: Git
   icon: "fab fa-git-alt"
   summary: "Version control software used in most of my projects."
   categories: ["tools"]
+  url: https://git-scm.com
 
 - name: GitHub Actions
   icon: "fab fa-github"
   summary: "CI/CD pipelines for automated testing and deployment."
   categories: ["tools"]
+  url: https://github.com/features/actions
 
 - name: pre-commit
   summary: "Tool for setting up Git hooks such as code linters, formatters, and test suites."
   categories: ["tools"]
+  url: https://pre-commit.com
 
 - name: Pytest / Tox
   summary: "Automated testing across Python environments."
   categories: ["tools"]
+  url: https://docs.pytest.org/en/stable/usage.html
 
 - name: LaTeX
   summary: "Document typesetting and BibTeX-based bibliography management."
   categories: ["tools"]
+  url: https://www.latex-project.org
 
 - name: SQL
   icon: "fas fa-database"
@@ -114,15 +133,19 @@ skills:
 - name: openpyxl
   summary: "Reading and writing Excel files programmatically."
   categories: ["data"]
+  url: https://openpyxl.readthedocs.io/en/stable/
 
 - name: Pandas
   summary: "Tabular data wrangling and analysis in Python."
   categories: ["data"]
+  url: https://pandas.pydata.org
 
 - name: NumPy
   summary: "Numerical computing in Python."
   categories: ["data"]
+  url: https://numpy.org
 
 - name: R tidyverse
   summary: "Data wrangling and visualisation in R."
   categories: ["data"]
+  url: https://www.tidyverse.org
