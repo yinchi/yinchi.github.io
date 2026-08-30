@@ -30,6 +30,11 @@ html[data-theme='dark'] {
   width: auto;
 }
 
+.home {
+  height: 100vh;
+  height: 100dvh;
+}
+
 // Toha's hero .greeting-subtitle and .typing-carousel have no max-width of their own,
 // so we set one here to limit their width, and center them on the page.
 .home {
@@ -67,10 +72,14 @@ html[data-theme='light'] {
 }
 
 // Sticky-footer fix: set the body to a column flex container spanning the full viewport height.
+// min-height: 100dvh (falls back to 100vh where unsupported) tracks the *actual* visible
+// viewport rather than the address-bar-collapsed value 100vh resolves to on mobile, so the
+// footer sticks to the bottom of what's really on screen instead of a taller phantom viewport.
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .container-fluid.anchor.pb-5 {
