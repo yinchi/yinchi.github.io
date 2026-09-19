@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const strings = Array.from($ul).map($el => $el.textContent)
 
   let typeItInstance = new TypeIt('#typed', {
-    speed: 40,
-    deleteSpeed: 20,
+    speed: 5,
+    deleteSpeed: 5,
     lifeLike: false,
     breakLines: false,
     cursorChar: "|",
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   strings.forEach((string, index) => {
-    typeItInstance = typeItInstance.type(string).pause(2000)
+    typeItInstance = typeItInstance.type(string).pause(8000)
     if (index < strings.length - 1) {
       typeItInstance = typeItInstance.delete(string.length)
     }
