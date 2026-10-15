@@ -4,6 +4,22 @@ description: "Full list of Yin-Chi Chan's software, data science, and academic p
 type: page
 ---
 
+## VirtOS: a simplified Rust-based operating system
+
+<https://github.com/yinchi/virtos>
+
+A minimal operating system for the QEMU emulator with VirtIO devices.
+
+- Uses raw keyboard events for input, as opposed to ANSI escape sequences.
+- Runs on the virt machine type in QEMU using the AArch64 architecture.
+- Inspired by Linux, but much simpler — for educational purposes only.
+- Single-user, single-threaded, simple FAT-based filesystem.
+- Unicode support (display only, input assumes US-QWERTY layout).
+
+{{< img src="/images/projects/virtos_demo.png" title="VirtOS demo screenshot" >}}
+
+{{< img src="/images/projects/virtos_demo2.png" title="VirtOS demo screenshot" >}}
+
 ## Command-line LLM chatbot demo
 
 <https://github.com/yinchi/openai_demo>
@@ -54,6 +70,8 @@ Published challenge solutions:
 Clone of the classic Top Spin puzzle by Binary Arts. Auto-solver included based on a greedy
 algorithm plus endgame table lookup. Full blog post
 [here]({{< ref "posts/top-spin" >}}).
+
+{{< img src="/images/projects/ring_puzzle.png" title="Ring puzzle demo screenshot" >}}
 
 ### [&mu;py](https://github.com/yinchi/upy/)
 

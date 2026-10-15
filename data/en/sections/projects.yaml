@@ -6,6 +6,20 @@ section:
   showOnNavbar: false
 
 projects:
+
+- name: VirtOS
+  url: "https://github.com/yinchi/virtos"
+  summary: >
+    A minimal operating system for the QEMU emulator with VirtIO devices.
+  tags: ["hobby", "operating system", "rust"]
+
+- name: LLM chatbot demo
+  url: "https://github.com/yinchi/openai_demo"
+  summary: >
+    A simple command-line chatbot using the OpenAI Chat Completions API, with support for
+    file read/write, Python code execution, and web search via the Brave Search API.
+  tags: ["hobby", "chatbot", "python"]
+
 - name: Ring Puzzle
   url: "https://yinchi.github.io/ring_puzzle/"
   summary: >
