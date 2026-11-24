@@ -20,6 +20,13 @@ projects:
     file read/write, Python code execution, and web search via the Brave Search API.
   tags: ["hobby", "chatbot", "python"]
 
+- name: QR code explainer
+  url: "https://yinchi.dev/qr"
+  summary: >
+    An interactive guide to QR codes, explaining their structure, encoding, and decoding processes.
+    Covers GF(2⁸) and Reed-Solomon error correction.
+  tags: ["hobby", "qr code", "typescript"]
+
 - name: Ring Puzzle
   url: "https://yinchi.github.io/ring_puzzle/"
   summary: >
@@ -36,13 +43,13 @@ projects:
     RMSE of 0.782 on the test set.
   tags: ["academic", "r"]
 
-- name: HarvardX Higgs Classification
-  url: "https://yinchi.github.io/harvardx-higgs/"
-  summary: >
-    R project for the edX course HarvardX PH125.9x "Data Science: Capstone" &mdash; neural
-    network classification of particle collision events from the HIGGS dataset, achieving an
-    AUC of 0.877.
-  tags: ["academic", "r"]
+# - name: HarvardX Higgs Classification
+#   url: "https://yinchi.github.io/harvardx-higgs/"
+#   summary: >
+#     R project for the edX course HarvardX PH125.9x "Data Science: Capstone" &mdash; neural
+#     network classification of particle collision events from the HIGGS dataset, achieving an
+#     AUC of 0.877.
+#   tags: ["academic", "r"]
 
 - name: CodeCrafters Profile
   url: "https://app.codecrafters.io/users/yinchi"

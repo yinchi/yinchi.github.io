@@ -65,6 +65,14 @@ Published challenge solutions:
 
 ## Other projects
 
+### [QR code explainer](https://yinchi.dev/qr)
+
+An interactive guide to QR codes, explaining their structure, encoding, and decoding processes.
+Covers GF(2⁸) and Reed-Solomon error correction.
+
+{{< img src="/images/projects/qr.png" title="QR code explainer demo screenshot" >}}
+
+
 ### [Ring puzzle](https://yinchi.github.io/ring_puzzle/)
 
 Clone of the classic Top Spin puzzle by Binary Arts. Auto-solver included based on a greedy
