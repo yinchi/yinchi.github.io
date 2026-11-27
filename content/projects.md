@@ -4,6 +4,17 @@ description: "Full list of Yin-Chi Chan's software, data science, and academic p
 type: page
 ---
 
+## Fine-tuning lab
+
+<https://yinchi.dev/fine-tuning-lab/404_summary.html>
+
+{{< img src="/images/projects/lora_layer.svg" title="Fine-tuning lab LoRA illustration" >}}
+
+I ran LoRA fine-tuning experiments on the [ConvFinQA](https://arxiv.org/abs/2210.03849)
+financial question answering dataset, using a Qwen3-4B base model. The fine-tuned model has an
+accuracy of around 81%, compared to 57% for the base model even after including three
+question-answer examples in each prompt (not needed for the fine-tuned model).
+
 ## VirtOS: a simplified Rust-based operating system
 
 <https://github.com/yinchi/virtos>
